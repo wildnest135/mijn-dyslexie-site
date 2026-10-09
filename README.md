@@ -1,0 +1,7 @@
+# Lees op jouw manier
+
+Een kleine, zelfstandige webpagina met Dinands verhaal en instelbare leesweergave. Open `index.html` in een browser; er is geen installatie of server nodig.
+
+De pagina start met het profiel **‘Hoe de maker het ervaart’**: letters van plek wisselen op 50%, letters bewegen en draaien op 50%, en maximale schermvullende blur die willekeurig na 7–10 seconden terugkomt. Je kunt dit aanpassen of een ander startpunt kiezen. De overige instellingen bevatten lettertype, tekstgrootte, regelafstand, letterafstand en kleurthema. Instellingen worden lokaal in de browser bewaard. Er zijn ook aparte schuifregelaars voor verwarring tussen b/d en p/q en een keuze tussen een vast of willekeurig waasinterval. De duur van de waas is instelbaar van 1 tot 10 seconden. Een aparte knop blijft scherp zichtbaar om de vervaging direct te pauzeren. Hoge standen kunnen de pagina moeilijk leesbaar maken. De bron beschrijft een persoonlijke ervaring; de effecten op deze pagina zijn geen echte simulatie of diagnose van dyslexie. Beweging en vervaging kunnen samen worden gepauzeerd en worden uitgeschakeld wanneer het apparaat minder beweging vraagt.
+
+De pagina bevat ook korte achtergrondinformatie en verwijzingen naar [Dyslexie Centraal](https://dyslexiecentraal.nl/) en de [NHS](https://www.nhs.uk/conditions/dyslexia-in-children/). Gebruik het effect als educatief gespreksexperiment, niet als maatstaf voor iemands ervaring.
