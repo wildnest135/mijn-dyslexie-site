@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f6fa">
+    <title>Lees op jouw manier</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Lees op jouw manier, startpagina">
+        <span class="brand-mark" aria-hidden="true">Aa</span>
+        <span>Lees op jouw manier</span>
+      </a>
+      <span class="header-note">Een leeservaring die je zelf instelt</span>
+    </header>
+
+    <main class="page-layout">
+      <section class="reader-column" aria-labelledby="page-title">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> Jouw persoonlijke leesplek</div>
+        <h1 id="page-title">Mijn verhaal</h1>
+        <p class="intro">
+          Ik ben Dinand. Hieronder vertel ik iets over mezelf en over hoe ik lezen
+          met dyslexie ervaar. Met de instellingen kun je de tekstweergave aanpassen.
+        </p>
+
+        <article class="reading-card" aria-labelledby="reading-title">
+          <div class="reading-card-top">
+            <div>
+              <p class="card-label">MIJN VERHAAL</p>
+              <h2 id="reading-title">Hoi, ik ben Dinand</h2>
+            </div>
+            <span class="reading-time">10 minuten lezen</span>
+          </div>
+          <div id="reading-text" class="reading-text"></div>
+          <p class="note">
+            Dit is een educatief leesexperiment, geen echte simulatie van dyslexie.
+            Er is geen één ervaring die voor iedereen met dyslexie geldt.
+          </p>
+        </article>
+
+        <section class="info-section" aria-labelledby="info-title">
+          <p class="card-label">ACHTERGROND</p>
+          <h2 id="info-title">Over dyslexie en dit experiment</h2>
+          <div class="info-block">
+            <h3>Wat is dyslexie?</h3>
+            <p>
+              Dyslexie is een leerstoornis die vooral invloed kan hebben op vlot en
+              nauwkeurig lezen en spellen. Lezen kan daardoor meer tijd en inspanning
+              kosten. Het zegt niets over iemands intelligentie. Hoe iemand het ervaart
+              en welke ondersteuning helpt, verschilt per persoon.
+            </p>
+          </div>
+          <div class="info-block">
+            <h3>Wat doet deze pagina?</h3>
+            <p>
+              De inspiratiebron beschrijft één persoonlijke ervaring van lezen dat
+              veel concentratie vraagt, en experimenteert met af en toe verwisselde
+              letters in woorden. Deze pagina maakt dat letter-effect instelbaar en
+              voegt kleine, willekeurige bewegingen toe. Het is een kunstmatig
+              voorbeeld om over leesinspanning te praten, geen weergave van wat
+              iemands brein of zicht doet.
+            </p>
+          </div>
+          <div class="info-block">
+            <h3>Gebruik het met aandacht</h3>
+            <p>
+              Gebruik dit als korte demonstratie of gesprekstarter, niet als test,
+              diagnose of bewijs van hoe dyslexie voelt. Vraag mensen met dyslexie
+              zelf naar hun ervaring en laat hen de effecten overslaan of pauzeren.
+              De instellingen voor lettertype, ruimte en kleur zijn persoonlijke
+              voorkeuren; ze zijn geen behandeling en werken niet voor iedereen
+              hetzelfde.
+            </p>
+          </div>
+          <div class="sources">
+            <h3>Meer lezen</h3>
+            <ul>
+              <li><a href="https://geon.github.io/programming/2016/03/03/dsxyliea" target="_blank" rel="noopener noreferrer">Geon — “Dsxyliea” (inspiratie voor het letterexperiment)</a></li>
+              <li><a href="https://dyslexiecentraal.nl/" target="_blank" rel="noopener noreferrer">Dyslexie Centraal — informatie over leesproblemen en dyslexie</a></li>
+              <li><a href="https://www.nhs.uk/conditions/dyslexia-in-children/" target="_blank" rel="noopener noreferrer">NHS — informatie over dyslexie en ondersteuning (Engels)</a></li>
+            </ul>
+          </div>
+        </section>
+      </section>
+
+      <aside class="settings-card" aria-labelledby="settings-title">
+        <div class="settings-heading">
+          <div class="settings-icon" aria-hidden="true">✳</div>
+          <div>
+            <h2 id="settings-title">Leesinstellingen</h2>
+            <p>Kies wat voor jou prettig voelt.</p>
+          </div>
+        </div>
+
+        <div class="preset-section">
+          <label for="preset">Begin met een startpunt</label>
+          <select id="preset">
+            <option value="maker">Hoe de maker het ervaart</option>
+            <option value="custom">Mijn instellingen</option>
+            <option value="calm">Rustig</option>
+            <option value="spacious">Extra ruimte</option>
+            <option value="contrast">Meer contrast</option>
+          </select>
+          <p class="helper-text">Dit zijn startpunten, geen vaste profielen of diagnoses.</p>
+        </div>
+
+        <div class="setting">
+          <label for="font-family">Lettertype</label>
+          <select id="font-family">
+            <option value="system">Eenvoudig (sans-serif)</option>
+            <option value="serif">Serif</option>
+            <option value="mono">Monospace</option>
+          </select>
+        </div>
+
+        <div class="setting">
+          <div class="range-heading">
+            <label for="font-size">Tekstgrootte</label>
+            <output id="font-size-value" for="font-size">19 px</output>
+          </div>
+          <input id="font-size" type="range" min="16" max="30" value="19">
+        </div>
+
+        <div class="setting">
+          <div class="range-heading">
+            <label for="line-height">Regelafstand</label>
+            <output id="line-height-value" for="line-height">1,7</output>
+          </div>
+          <input id="line-height" type="range" min="13" max="24" value="17">
+        </div>
+
+        <div class="setting">
+          <div class="range-heading">
+            <label for="letter-spacing">Ruimte tussen letters</label>
+            <output id="letter-spacing-value" for="letter-spacing">0 px</output>
+          </div>
+          <input id="letter-spacing" type="range" min="0" max="3" value="0">
+        </div>
+
+        <div class="setting">
+          <label for="color-theme">Kleurthema</label>
+          <select id="color-theme">
+            <option value="light">Zacht licht</option>
+            <option value="cream">Warm crème</option>
+            <option value="dark">Donker</option>
+            <option value="high-contrast">Hoog contrast</option>
+          </select>
+        </div>
+
+        <div class="setting scramble-setting">
+          <label for="haze-interval-mode">Interval</label>
+          <select id="haze-interval-mode">
+            <option value="fixed">Vast interval</option>
+            <option value="random">Willekeurig tussen 7 en 10 sec</option>
+          </select>
+          <p class="helper-text">Kies een vast interval of laat de waas met dit profiel willekeurig na 7–10 seconden terugkomen.</p>
+        </div>
+
+        <div class="setting scramble-setting">
+          <div class="range-heading">
+            <label for="word-shuffle">Letters van plek wisselen</label>
+            <output id="word-shuffle-value" for="word-shuffle">Uit</output>
+          </div>
+          <input id="word-shuffle" type="range" min="0" max="100" value="0">
+          <p class="helper-text">Wisselt soms letters binnen woorden, zoals in het bronexperiment. Zet op 0 om uit te schakelen.</p>
+        </div>
+
+        <div class="setting scramble-setting">
+          <div class="range-heading">
+            <label for="letter-confusion">Letters verwarren</label>
+            <output id="letter-confusion-value" for="letter-confusion">Uit</output>
+          </div>
+          <input id="letter-confusion" type="range" min="0" max="100" value="0">
+          <p class="helper-text">Verandert soms b in d (en andersom), of p in q (en andersom). Dit is een willekeurig visueel effect, geen vaste dyslexie-ervaring.</p>
+        </div>
+
+        <div class="setting scramble-setting">
+          <div class="range-heading">
+            <label for="letter-motion">Letters draaien en bewegen</label>
+            <output id="letter-motion-value" for="letter-motion">Uit</output>
+          </div>
+          <input id="letter-motion" type="range" min="0" max="100" value="0">
+          <p class="helper-text">Geeft letters een subtiele, willekeurige beweging. Deze instelling staat los van het wisselen van letters.</p>
+          <label class="pause-control" for="motion-paused">
+            <input id="motion-paused" type="checkbox">
+            Beweging en waas pauzeren
+          </label>
+        </div>
+
+        <div class="setting scramble-setting">
+          <div class="range-heading">
+            <label for="reading-haze">Sterkte van de leeswaas</label>
+            <output id="reading-haze-value" for="reading-haze">Uit</output>
+          </div>
+          <input id="reading-haze" type="range" min="0" max="100" value="0">
+          <p class="helper-text">Stel de vervaging zelf in van subtiel tot zeer sterk. Bij hoge standen kan de pagina moeilijk leesbaar worden. Zet op 0 om uit te schakelen.</p>
+        </div>
+
+        <div class="setting scramble-setting">
+          <label for="haze-mode">Wanneer de waas verschijnt</label>
+          <select id="haze-mode">
+            <option value="intermittent">Af en toe</option>
+            <option value="constant">Continu</option>
+          </select>
+          <p class="helper-text">Continu houdt de wazige vlekken zichtbaar. Interval en duur gelden alleen bij ‘Af en toe’.</p>
+        </div>
+
+        <div class="setting scramble-setting">
+          <div class="range-heading">
+            <label for="haze-interval">Tijd tussen waasmomenten</label>
+            <output id="haze-interval-value" for="haze-interval">15 sec</output>
+          </div>
+          <input id="haze-interval" type="range" min="5" max="60" step="1" value="15">
+          <p class="helper-text">Kies een interval van 5 tot 60 seconden. Standaard verschijnt de waas ongeveer elke 15 seconden.</p>
+        </div>
+
+        <div class="setting scramble-setting">
+          <div class="range-heading">
+            <label for="haze-duration">Hoe lang de waas blijft</label>
+            <output id="haze-duration-value" for="haze-duration">2 sec</output>
+          </div>
+          <input id="haze-duration" type="range" min="1" max="10" step="1" value="2">
+          <p class="helper-text">Kies hoelang elk waasmoment duurt, van 1 tot 10 seconden.</p>
+        </div>
+
+        <div class="settings-actions">
+          <button id="reset-settings" class="reset-button" type="button">Herstel instellingen</button>
+          <span id="save-status" class="save-status" role="status" aria-live="polite">Instellingen worden bewaard op dit apparaat.</span>
+        </div>
+      </aside>
+    </main>
+    <footer class="site-footer">
+      Je instellingen blijven op dit apparaat. Deze pagina stelt geen diagnose en vervangt geen professioneel advies.
+    </footer>
+    <div id="haze-overlay" class="haze-overlay">
+      <button id="pause-haze" class="pause-haze-button" type="button" aria-pressed="false">
+        Pauzeer waas
+      </button>
+    </div>
+  </body>
+</html>
