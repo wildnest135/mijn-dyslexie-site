@@ -35,6 +35,11 @@
             <span class="reading-time">10 minuten lezen</span>
           </div>
           <div id="reading-text" class="reading-text"></div>
+          <div class="reading-actions">
+            <button id="normal-reading" class="action-button" type="button" aria-pressed="false">Lees deze tekst normaal</button>
+            <button id="focus-mode-toggle" class="reset-button" type="button" aria-pressed="false">Rustige leesstand</button>
+            <span id="normal-reading-status" class="save-status" role="status" aria-live="polite"></span>
+          </div>
           <p class="note">
             Dit is een educatief leesexperiment, geen echte simulatie van dyslexie.
             Er is geen één ervaring die voor iedereen met dyslexie geldt.
@@ -84,6 +89,27 @@
             </ul>
           </div>
         </section>
+
+        <section class="info-section contact-section" aria-labelledby="contact-title">
+          <p class="card-label">JOUW ERVARING</p>
+          <h2 id="contact-title">Deel wat jij nodig hebt</h2>
+          <p>
+            Veel onderdelen van deze pagina zijn aanpasbaar. Laat je familie en vrienden
+            de pagina zien en vertel hoe jij lezen ervaart. Mist er iets in de instellingen
+            of heb je een idee voor een effect? Laat het me weten; ik kijk wat ik kan
+            toevoegen zodat je jouw ervaring met hen kunt delen.
+          </p>
+          <p>
+            Heb je een suggestie? Je kunt die delen in de
+            <a class="feedback-link" href="https://discord.gg/Fw57dWnwY8" target="_blank" rel="noopener noreferrer">Discord-server</a>
+            of plaatsen bij de
+            <a class="feedback-link" href="https://github.com/wildnest135/mijn-dyslexie-site/issues" target="_blank" rel="noopener noreferrer">Issues van de GitHub-repo</a>.
+          </p>
+          <p class="contact-note">
+            Deze pagina kan niet precies laten zien hoe dyslexie voor iedereen voelt.
+            Jouw eigen verhaal blijft het belangrijkst.
+          </p>
+        </section>
       </section>
 
       <aside class="settings-card" aria-labelledby="settings-title">
@@ -101,130 +127,210 @@
             <option value="maker">Hoe de maker het ervaart</option>
             <option value="custom">Mijn instellingen</option>
             <option value="calm">Rustig</option>
+            <option value="makkelijk-lezen">Makkelijk lezen</option>
             <option value="spacious">Extra ruimte</option>
             <option value="contrast">Meer contrast</option>
           </select>
           <p class="helper-text">Dit zijn startpunten, geen vaste profielen of diagnoses.</p>
         </div>
 
-        <div class="setting">
-          <label for="font-family">Lettertype</label>
-          <select id="font-family">
-            <option value="system">Eenvoudig (sans-serif)</option>
-            <option value="serif">Serif</option>
-            <option value="mono">Monospace</option>
+        <div class="saved-profiles">
+          <label for="saved-profile-name">Eigen profiel bewaren</label>
+          <div class="profile-save-row">
+            <input id="saved-profile-name" type="text" maxlength="40" placeholder="Bijvoorbeeld: makkelijk lezen">
+            <button id="save-profile" class="action-button" type="button" aria-label="Profiel opslaan" title="Profiel opslaan">Opslaan</button>
+          </div>
+          <label for="saved-profiles-list">Bewaarde profielen</label>
+          <select id="saved-profiles-list">
+            <option value="">Kies een profiel</option>
           </select>
-        </div>
-
-        <div class="setting">
-          <div class="range-heading">
-            <label for="font-size">Tekstgrootte</label>
-            <output id="font-size-value" for="font-size">19 px</output>
+          <div class="profile-actions">
+            <button id="load-profile" class="reset-button" type="button" disabled>Laden</button>
+            <button id="delete-profile" class="reset-button" type="button" disabled>Verwijderen</button>
           </div>
-          <input id="font-size" type="range" min="16" max="30" value="19">
+          <span id="profile-status" class="save-status" role="status" aria-live="polite"></span>
         </div>
 
-        <div class="setting">
-          <div class="range-heading">
-            <label for="line-height">Regelafstand</label>
-            <output id="line-height-value" for="line-height">1,7</output>
+        <details class="settings-group" open>
+          <summary>Tekstopmaak</summary>
+          <div class="settings-group-content">
+            <div class="setting">
+              <label for="font-family">Lettertype</label>
+              <select id="font-family">
+                <option value="system">Eenvoudig (sans-serif)</option>
+                <option value="serif">Serif</option>
+                <option value="mono">Monospace</option>
+              </select>
+            </div>
+            <div class="setting">
+              <div class="range-heading">
+                <label for="font-size">Tekstgrootte</label>
+                <output id="font-size-value" for="font-size">19 px</output>
+              </div>
+              <input id="font-size" type="range" min="16" max="30" value="19">
+            </div>
+            <div class="setting">
+              <div class="range-heading">
+                <label for="line-height">Regelafstand</label>
+                <output id="line-height-value" for="line-height">1,7</output>
+              </div>
+              <input id="line-height" type="range" min="13" max="24" value="17">
+            </div>
+            <div class="setting">
+              <div class="range-heading">
+                <label for="letter-spacing">Ruimte tussen letters</label>
+                <output id="letter-spacing-value" for="letter-spacing">0 px</output>
+              </div>
+              <input id="letter-spacing" type="range" min="0" max="3" value="0">
+            </div>
+            <div class="setting">
+              <div class="range-heading">
+                <label for="word-spacing">Ruimte tussen woorden</label>
+                <output id="word-spacing-value" for="word-spacing">0 px</output>
+              </div>
+              <input id="word-spacing" type="range" min="0" max="16" step="1" value="0">
+            </div>
+            <div class="setting">
+              <div class="range-heading">
+                <label for="paragraph-spacing">Ruimte tussen alinea's</label>
+                <output id="paragraph-spacing-value" for="paragraph-spacing">1,0×</output>
+              </div>
+              <input id="paragraph-spacing" type="range" min="0.5" max="2.5" step="0.1" value="1">
+            </div>
+            <div class="setting">
+              <div class="range-heading">
+                <label for="text-width">Tekstbreedte</label>
+                <output id="text-width-value" for="text-width">100%</output>
+              </div>
+              <input id="text-width" type="range" min="50" max="100" step="5" value="100">
+            </div>
+            <div class="setting">
+              <label for="color-theme">Kleurthema</label>
+              <select id="color-theme">
+                <option value="light">Zacht licht</option>
+                <option value="cream">Warm crème</option>
+                <option value="dark">Donker</option>
+                <option value="high-contrast">Hoog contrast</option>
+              </select>
+            </div>
           </div>
-          <input id="line-height" type="range" min="13" max="24" value="17">
-        </div>
+        </details>
 
-        <div class="setting">
-          <div class="range-heading">
-            <label for="letter-spacing">Ruimte tussen letters</label>
-            <output id="letter-spacing-value" for="letter-spacing">0 px</output>
+        <details class="settings-group">
+          <summary>Letter-effecten</summary>
+          <div class="settings-group-content">
+            <div class="setting">
+              <div class="range-heading">
+                <label for="word-shuffle">Letters van plek wisselen</label>
+                <output id="word-shuffle-value" for="word-shuffle">Uit</output>
+              </div>
+              <label class="toggle-setting" for="shuffle-enabled"><input id="shuffle-enabled" type="checkbox" checked> Verspringen aan</label>
+              <input id="word-shuffle" type="range" min="0" max="100" value="0">
+            </div>
+            <div class="setting">
+              <div class="range-heading">
+                <label for="letter-confusion">Letters verwarren</label>
+                <output id="letter-confusion-value" for="letter-confusion">Uit</output>
+              </div>
+              <label class="toggle-setting" for="confusion-enabled"><input id="confusion-enabled" type="checkbox" checked> Letterverwarring aan</label>
+              <input id="letter-confusion" type="range" min="0" max="100" value="0">
+            </div>
+            <div class="setting">
+              <div class="range-heading">
+                <label for="letter-motion">Letters laten zweven</label>
+                <output id="letter-motion-value" for="letter-motion">Uit</output>
+              </div>
+              <label class="toggle-setting" for="motion-enabled"><input id="motion-enabled" type="checkbox" checked> Zweven aan</label>
+              <input id="letter-motion" type="range" min="0" max="100" value="0">
+            </div>
+            <div class="setting">
+              <div class="range-heading">
+                <label for="shuffle-interval">Tijd tussen letterwissels</label>
+                <output id="shuffle-interval-value" for="shuffle-interval">4 sec</output>
+              </div>
+              <input id="shuffle-interval" type="range" min="3" max="10" step="1" value="4">
+            </div>
+            <div class="setting">
+              <div class="range-heading">
+                <label for="shuffle-duration">Duur van verplaatsen</label>
+                <output id="shuffle-duration-value" for="shuffle-duration">1,4 sec</output>
+              </div>
+              <input id="shuffle-duration" type="range" min="0.6" max="2.2" step="0.2" value="1.4">
+            </div>
+            <label class="pause-control" for="motion-paused">
+              <input id="motion-paused" type="checkbox">
+              Beweging en waas pauzeren
+            </label>
           </div>
-          <input id="letter-spacing" type="range" min="0" max="3" value="0">
-        </div>
+        </details>
 
-        <div class="setting">
-          <label for="color-theme">Kleurthema</label>
-          <select id="color-theme">
-            <option value="light">Zacht licht</option>
-            <option value="cream">Warm crème</option>
-            <option value="dark">Donker</option>
-            <option value="high-contrast">Hoog contrast</option>
-          </select>
-        </div>
-
-        <div class="setting scramble-setting">
-          <label for="haze-interval-mode">Interval</label>
-          <select id="haze-interval-mode">
-            <option value="fixed">Vast interval</option>
-            <option value="random">Willekeurig tussen 7 en 10 sec</option>
-          </select>
-          <p class="helper-text">Kies een vast interval of laat de waas met dit profiel willekeurig na 7–10 seconden terugkomen.</p>
-        </div>
-
-        <div class="setting scramble-setting">
-          <div class="range-heading">
-            <label for="word-shuffle">Letters van plek wisselen</label>
-            <output id="word-shuffle-value" for="word-shuffle">Uit</output>
+        <details class="settings-group">
+          <summary>Leeswaas</summary>
+          <div class="settings-group-content">
+            <div class="setting">
+              <div class="range-heading">
+                <label for="reading-haze">Sterkte van de leeswaas</label>
+                <output id="reading-haze-value" for="reading-haze">Uit</output>
+              </div>
+              <label class="toggle-setting" for="haze-enabled"><input id="haze-enabled" type="checkbox" checked> Leeswaas aan</label>
+              <input id="reading-haze" type="range" min="0" max="100" value="0">
+            </div>
+            <div class="setting">
+              <label for="haze-mode">Wanneer de waas verschijnt</label>
+              <select id="haze-mode">
+                <option value="intermittent">Af en toe</option>
+                <option value="constant">Continu</option>
+              </select>
+            </div>
+            <div class="setting">
+              <label for="haze-interval-mode">Intervaltype</label>
+              <select id="haze-interval-mode">
+                <option value="fixed">Vast interval</option>
+                <option value="random">Willekeurig tussen 7 en 10 sec</option>
+              </select>
+            </div>
+            <div class="setting">
+              <div class="range-heading">
+                <label for="haze-interval">Tijd tussen waasmomenten</label>
+                <output id="haze-interval-value" for="haze-interval">8 sec</output>
+              </div>
+              <input id="haze-interval" type="range" min="5" max="60" step="1" value="8">
+            </div>
+            <div class="setting">
+              <div class="range-heading">
+                <label for="haze-duration">Hoe lang de waas blijft</label>
+                <output id="haze-duration-value" for="haze-duration">2 sec</output>
+              </div>
+              <input id="haze-duration" type="range" min="1" max="10" step="1" value="2">
+            </div>
           </div>
-          <input id="word-shuffle" type="range" min="0" max="100" value="0">
-          <p class="helper-text">Wisselt soms letters binnen woorden, zoals in het bronexperiment. Zet op 0 om uit te schakelen.</p>
-        </div>
+        </details>
 
-        <div class="setting scramble-setting">
-          <div class="range-heading">
-            <label for="letter-confusion">Letters verwarren</label>
-            <output id="letter-confusion-value" for="letter-confusion">Uit</output>
+        <details class="settings-group">
+          <summary>Leesliniaal</summary>
+          <div class="settings-group-content">
+            <label class="toggle-setting" for="ruler-enabled"><input id="ruler-enabled" type="checkbox"> Liniaal volgen</label>
+            <p class="helper-text">De liniaal volgt je aanwijzer over de leestekst en dimt de regels eromheen.</p>
           </div>
-          <input id="letter-confusion" type="range" min="0" max="100" value="0">
-          <p class="helper-text">Verandert soms b in d (en andersom), of p in q (en andersom). Dit is een willekeurig visueel effect, geen vaste dyslexie-ervaring.</p>
-        </div>
+        </details>
 
-        <div class="setting scramble-setting">
-          <div class="range-heading">
-            <label for="letter-motion">Letters draaien en bewegen</label>
-            <output id="letter-motion-value" for="letter-motion">Uit</output>
+        <details class="settings-group">
+          <summary>Eigen verhaal</summary>
+          <div class="settings-group-content">
+            <div class="setting">
+              <label for="custom-story-title">Titel</label>
+              <input id="custom-story-title" type="text" maxlength="80" placeholder="Hoi, ik ben Dinand">
+            </div>
+            <div class="setting">
+              <label for="custom-story-text">Leestekst</label>
+              <textarea id="custom-story-text" rows="7" maxlength="12000" placeholder="Laat leeg om het standaardverhaal te gebruiken."></textarea>
+            </div>
+            <div class="custom-story-actions">
+              <button id="apply-custom-story" class="action-button" type="button">Tekst toepassen</button>
+              <button id="reset-custom-story" class="reset-button" type="button">Standaardverhaal</button>
+            </div>
           </div>
-          <input id="letter-motion" type="range" min="0" max="100" value="0">
-          <p class="helper-text">Geeft letters een subtiele, willekeurige beweging. Deze instelling staat los van het wisselen van letters.</p>
-          <label class="pause-control" for="motion-paused">
-            <input id="motion-paused" type="checkbox">
-            Beweging en waas pauzeren
-          </label>
-        </div>
-
-        <div class="setting scramble-setting">
-          <div class="range-heading">
-            <label for="reading-haze">Sterkte van de leeswaas</label>
-            <output id="reading-haze-value" for="reading-haze">Uit</output>
-          </div>
-          <input id="reading-haze" type="range" min="0" max="100" value="0">
-          <p class="helper-text">Stel de vervaging zelf in van subtiel tot zeer sterk. Bij hoge standen kan de pagina moeilijk leesbaar worden. Zet op 0 om uit te schakelen.</p>
-        </div>
-
-        <div class="setting scramble-setting">
-          <label for="haze-mode">Wanneer de waas verschijnt</label>
-          <select id="haze-mode">
-            <option value="intermittent">Af en toe</option>
-            <option value="constant">Continu</option>
-          </select>
-          <p class="helper-text">Continu houdt de wazige vlekken zichtbaar. Interval en duur gelden alleen bij ‘Af en toe’.</p>
-        </div>
-
-        <div class="setting scramble-setting">
-          <div class="range-heading">
-            <label for="haze-interval">Tijd tussen waasmomenten</label>
-            <output id="haze-interval-value" for="haze-interval">15 sec</output>
-          </div>
-          <input id="haze-interval" type="range" min="5" max="60" step="1" value="15">
-          <p class="helper-text">Kies een interval van 5 tot 60 seconden. Standaard verschijnt de waas ongeveer elke 15 seconden.</p>
-        </div>
-
-        <div class="setting scramble-setting">
-          <div class="range-heading">
-            <label for="haze-duration">Hoe lang de waas blijft</label>
-            <output id="haze-duration-value" for="haze-duration">2 sec</output>
-          </div>
-          <input id="haze-duration" type="range" min="1" max="10" step="1" value="2">
-          <p class="helper-text">Kies hoelang elk waasmoment duurt, van 1 tot 10 seconden.</p>
-        </div>
+        </details>
 
         <div class="settings-actions">
           <button id="reset-settings" class="reset-button" type="button">Herstel instellingen</button>
@@ -240,5 +346,6 @@
         Pauzeer waas
       </button>
     </div>
+    <div id="reading-ruler" class="reading-ruler" aria-hidden="true"></div>
   </body>
 </html>
