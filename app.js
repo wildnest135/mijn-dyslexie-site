@@ -84,7 +84,7 @@ const output = {
 function readSettings() {
   let stored;
   try {
-    stored = localStorage.getItem("lees-op-jouw-manier");
+    stored = localStorage.getItem("lees-op-mijn-manier");
   } catch (error) {
     console.error("De bewaarde leesinstellingen konden niet worden geopend.", error);
     output.saveStatus.textContent = "Opslag is niet beschikbaar; instellingen gelden alleen zolang deze pagina open is.";
