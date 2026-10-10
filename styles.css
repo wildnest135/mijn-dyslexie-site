@@ -570,6 +570,10 @@ button:focus-visible,
   list-style: none;
 }
 
+.settings-group summary::marker {
+  content: "";
+}
+
 .settings-group summary::-webkit-details-marker {
   display: none;
 }
