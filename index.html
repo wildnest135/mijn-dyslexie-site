@@ -1,114 +1,96 @@
 <!doctype html>
-<html lang="nl">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#f5f6fa">
-    <title>Lees op mijn manier</title>
+    <title>Read my way</title>
     <link rel="stylesheet" href="styles.css">
     <script src="app.js" defer></script>
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="#" aria-label="Lees op jouw manier, startpagina">
+      <a class="brand" href="#" aria-label="Read my way, home" data-i18n-aria="brandAria">
         <span class="brand-mark" aria-hidden="true">Aa</span>
-        <span>Lees op mijn manier</span>
+        <span data-i18n="brand">Read my way</span>
       </a>
-      <span class="header-note">Een leeservaring die je zelf instelt</span>
+      <span class="header-note" data-i18n="headerNote">A reading experience you can adjust</span>
+      <div class="language-control">
+        <span data-i18n="languageLabel">Language</span>
+        <button id="language-menu-toggle" class="language-menu-toggle" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="language-menu" aria-label="Language" data-i18n-aria="languageLabel">
+          <span id="language-code" class="language-code">EN</span>
+          <span id="language-name" class="language-name">English</span>
+          <span class="language-chevron" aria-hidden="true"></span>
+        </button>
+        <div id="language-menu" class="language-menu" role="listbox" aria-label="Language" data-i18n-aria="languageLabel" hidden>
+          <button class="language-option" type="button" role="option" data-language="en" aria-selected="true" tabindex="0"><span class="language-option-code">EN</span><span>English</span><span class="language-check" aria-hidden="true">&#10003;</span></button>
+          <button class="language-option" type="button" role="option" data-language="de" aria-selected="false" tabindex="-1"><span class="language-option-code">DE</span><span>Deutsch</span><span class="language-check" aria-hidden="true">&#10003;</span></button>
+          <button class="language-option" type="button" role="option" data-language="nl" aria-selected="false" tabindex="-1"><span class="language-option-code">NL</span><span>Nederlands</span><span class="language-check" aria-hidden="true">&#10003;</span></button>
+        </div>
+        <select id="language-select" class="language-value" tabindex="-1" aria-hidden="true">
+          <option value="en">EN</option>
+          <option value="de">DE</option>
+          <option value="nl">NL</option>
+        </select>
+      </div>
     </header>
 
     <main class="page-layout">
       <section class="reader-column" aria-labelledby="page-title">
-        <div class="eyebrow"><span class="eyebrow-dot"></span> Een plek waar lezen anders is</div>
-        <h1 id="page-title">Mijn verhaal</h1>
-        <p class="intro">
-          Ik ben Dinand. Hieronder vertel ik iets over mezelf en over hoe ik lezen
-          met dyslexie ervaar. Met de instellingen kun je de tekstweergave aanpassen.
-        </p>
+        <div class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="eyebrow">A place where reading feels different</span></div>
+        <h1 id="page-title" data-i18n="pageTitle">My story</h1>
+        <p class="intro" data-i18n="intro">I'm Dinand. Below, I share a little about myself and how I experience reading with dyslexia. You can adjust how the text appears in the settings.</p>
 
         <article class="reading-card" aria-labelledby="reading-title">
           <div class="reading-card-top">
             <div>
-              <p class="card-label">MIJN VERHAAL</p>
-              <h2 id="reading-title">Hoi, ik ben Dinand</h2>
+              <p class="card-label" data-i18n="storyLabel">MY STORY</p>
+              <h2 id="reading-title">Hi, I'm Dinand</h2>
             </div>
-            <span class="reading-time">10 minuten lezen</span>
+            <span class="reading-time" data-i18n="readingTime">10 minute read</span>
           </div>
           <div id="reading-text" class="reading-text"></div>
           <div class="reading-actions">
-            <button id="normal-reading" class="action-button" type="button" aria-pressed="false">Lees deze tekst normaal</button>
-            <button id="focus-mode-toggle" class="reset-button" type="button" aria-pressed="false">Rustige leesstand</button>
+            <button id="normal-reading" class="action-button" type="button" aria-pressed="false">Read normally</button>
+            <button id="focus-mode-toggle" class="reset-button" type="button" aria-pressed="false">Focus reading mode</button>
             <span id="normal-reading-status" class="save-status" role="status" aria-live="polite"></span>
           </div>
           <p class="note">
-            Dit is een educatief leesexperiment, geen echte simulatie van dyslexie.
-            Er is geen één ervaring die voor iedereen met dyslexie geldt.
+            <span data-i18n="readingNote">This is an educational reading experiment, not a true simulation of dyslexia. There is no single experience shared by everyone with dyslexia.</span>
           </p>
         </article>
 
         <section class="info-section" aria-labelledby="info-title">
-          <p class="card-label">ACHTERGROND</p>
-          <h2 id="info-title">Over dyslexie en dit experiment</h2>
+          <p class="card-label" data-i18n="backgroundLabel">BACKGROUND</p>
+          <h2 id="info-title" data-i18n="infoTitle">About dyslexia and this experiment</h2>
           <div class="info-block">
-            <h3>Wat is dyslexie?</h3>
-            <p>
-              Dyslexie is een leerstoornis die vooral invloed kan hebben op vlot en
-              nauwkeurig lezen en spellen. Lezen kan daardoor meer tijd en inspanning
-              kosten. Het zegt niets over iemands intelligentie. Hoe iemand het ervaart
-              en welke ondersteuning helpt, verschilt per persoon.
-            </p>
+            <h3 data-i18n="whatIsDyslexiaTitle">What is dyslexia?</h3>
+            <p data-i18n="whatIsDyslexia">Dyslexia is a learning difference that can mainly affect fluent and accurate reading and spelling. Reading may take more time and effort. It says nothing about a person's intelligence. Experiences and helpful support differ from person to person.</p>
           </div>
           <div class="info-block">
-            <h3>Wat doet deze pagina?</h3>
-            <p>
-              De inspiratiebron beschrijft één persoonlijke ervaring van lezen dat
-              veel concentratie vraagt, en experimenteert met af en toe verwisselde
-              letters in woorden. Deze pagina maakt dat letter-effect instelbaar en
-              voegt kleine, willekeurige bewegingen toe. Het is een kunstmatig
-              voorbeeld om over leesinspanning te praten, geen weergave van wat
-              iemands brein of zicht doet.
-            </p>
+            <h3 data-i18n="pageDoesTitle">What does this page do?</h3>
+            <p data-i18n="pageDoes">The inspiration describes one person's experience of reading that takes concentration, and experiments with occasionally swapped letters. This page makes those letter effects adjustable and adds gentle, random movement. It is an artificial example to start a conversation about reading effort, not a depiction of how anyone's brain or vision works.</p>
           </div>
           <div class="info-block">
-            <h3>Gebruik het met aandacht</h3>
-            <p>
-              Gebruik dit als korte demonstratie of gesprekstarter, niet als test,
-              diagnose of bewijs van hoe dyslexie voelt. Vraag mensen met dyslexie
-              zelf naar hun ervaring en laat hen de effecten overslaan of pauzeren.
-              De instellingen voor lettertype, ruimte en kleur zijn persoonlijke
-              voorkeuren; ze zijn geen behandeling en werken niet voor iedereen
-              hetzelfde.
-            </p>
+            <h3 data-i18n="useCarefullyTitle">Use it thoughtfully</h3>
+            <p data-i18n="useCarefully">Use this as a short demonstration or conversation starter, not as a test, diagnosis, or proof of what dyslexia feels like. Ask people with dyslexia about their own experiences, and let them skip or pause the effects. Font, spacing, and colour settings are personal preferences; they are not treatment and do not work the same way for everyone.</p>
           </div>
           <div class="sources">
-            <h3>Meer lezen</h3>
+            <h3 data-i18n="readMoreTitle">Read more</h3>
             <ul>
-              <li><a href="https://geon.github.io/programming/2016/03/03/dsxyliea" target="_blank" rel="noopener noreferrer">Geon — “Dsxyliea” (inspiratie voor het letterexperiment)</a></li>
-              <li><a href="https://dyslexiecentraal.nl/" target="_blank" rel="noopener noreferrer">Dyslexie Centraal — informatie over leesproblemen en dyslexie</a></li>
-              <li><a href="https://www.nhs.uk/conditions/dyslexia-in-children/" target="_blank" rel="noopener noreferrer">NHS — informatie over dyslexie en ondersteuning (Engels)</a></li>
+              <li><a href="https://geon.github.io/programming/2016/03/03/dsxyliea" target="_blank" rel="noopener noreferrer" data-i18n="sourceGeon">Geon — “Dsxyliea” (inspiration for the letter experiment)</a></li>
+              <li><a href="https://dyslexiecentraal.nl/" target="_blank" rel="noopener noreferrer" data-i18n="sourceDyslexieCentraal">Dyslexie Centraal — information about reading difficulties and dyslexia</a></li>
+              <li><a href="https://www.nhs.uk/conditions/dyslexia-in-children/" target="_blank" rel="noopener noreferrer" data-i18n="sourceNhs">NHS — information about dyslexia and support (English)</a></li>
             </ul>
           </div>
         </section>
 
         <section class="info-section contact-section" aria-labelledby="contact-title">
-          <p class="card-label">JOUW ERVARING</p>
-          <h2 id="contact-title">Deel wat jij nodig hebt</h2>
-          <p>
-            Veel onderdelen van deze pagina zijn aanpasbaar. Laat je familie en vrienden
-            de pagina zien en vertel hoe jij lezen ervaart. Mist er iets in de instellingen
-            of heb je een idee voor een effect? Laat het me weten; ik kijk wat ik kan
-            toevoegen zodat je jouw ervaring met hen kunt delen.
-          </p>
-          <p>
-            Heb je een suggestie? Je kunt die delen in de
-            <a class="feedback-link" href="https://discord.gg/Fw57dWnwY8" target="_blank" rel="noopener noreferrer">Discord-server</a>
-            of plaatsen bij de
-            <a class="feedback-link" href="https://github.com/wildnest135/mijn-dyslexie-site/issues" target="_blank" rel="noopener noreferrer">Issues van de GitHub-repo</a>.
-          </p>
-          <p class="contact-note">
-            Deze pagina kan niet precies laten zien hoe dyslexie voor iedereen voelt.
-            Jouw eigen verhaal blijft het belangrijkst.
-          </p>
+          <p class="card-label" data-i18n="experienceLabel">YOUR EXPERIENCE</p>
+          <h2 id="contact-title" data-i18n="contactTitle">Share what you need</h2>
+          <p data-i18n="contactIntro">Many parts of this page are adjustable. Show it to your family and friends and tell them how you experience reading. Is a setting missing, or do you have an idea for an effect? Let me know. I'll see what I can add to help you share your experience with them.</p>
+          <p><span data-i18n="feedbackPrompt">Have a suggestion? Share it in</span> <a class="feedback-link" href="https://discord.gg/Fw57dWnwY8" target="_blank" rel="noopener noreferrer" data-i18n="discordLink">the Discord server</a> <span data-i18n="orPostIt">or post it in</span> <a class="feedback-link" href="https://github.com/wildnest135/mijn-dyslexie-site/issues" target="_blank" rel="noopener noreferrer" data-i18n="issuesLink">the GitHub repository issues</a>.</p>
+          <p class="contact-note" data-i18n="contactNote">This page cannot show exactly what dyslexia feels like for everyone. Your own story matters most.</p>
         </section>
       </section>
 
@@ -116,189 +98,189 @@
         <div class="settings-heading">
           <div class="settings-icon" aria-hidden="true">✳</div>
           <div>
-            <h2 id="settings-title">Leesinstellingen</h2>
-            <p>Kies wat voor jou prettig voelt.</p>
+            <h2 id="settings-title" data-i18n="settingsTitle">Reading settings</h2>
+            <p data-i18n="settingsSubtitle">Choose what feels comfortable for you.</p>
           </div>
         </div>
 
         <div class="preset-section">
-          <label for="preset">Begin met een startpunt</label>
+          <label for="preset" data-i18n="presetLabel">Start with a preset</label>
           <select id="preset">
-            <option value="maker">Hoe de maker het ervaart</option>
-            <option value="custom">Mijn instellingen</option>
-            <option value="calm">Rustig</option>
-            <option value="makkelijk-lezen">Makkelijk lezen</option>
-            <option value="spacious">Extra ruimte</option>
-            <option value="contrast">Meer contrast</option>
+            <option value="maker" data-i18n="presetMaker">The creator's experience</option>
+            <option value="custom" data-i18n="presetCustom">My settings</option>
+            <option value="calm" data-i18n="presetCalm">Calm</option>
+            <option value="makkelijk-lezen" data-i18n="presetEasy">Easy reading</option>
+            <option value="spacious" data-i18n="presetSpacious">Extra spacing</option>
+            <option value="contrast" data-i18n="presetContrast">Higher contrast</option>
           </select>
-          <p class="helper-text">Dit zijn startpunten, geen vaste profielen of diagnoses.</p>
+          <p class="helper-text" data-i18n="presetHelp">These are starting points, not fixed profiles or diagnoses.</p>
         </div>
 
         <div class="saved-profiles">
-          <label for="saved-profile-name">Eigen profiel bewaren</label>
+          <label for="saved-profile-name" data-i18n="saveOwnProfile">Save a custom profile</label>
           <div class="profile-save-row">
-            <input id="saved-profile-name" type="text" maxlength="40" placeholder="Naam van profiel">
-            <button id="save-profile" class="action-button" type="button" aria-label="Profiel opslaan" title="Profiel opslaan">Opslaan</button>
+            <input id="saved-profile-name" type="text" maxlength="40" placeholder="Profile name" data-i18n-placeholder="profileNamePlaceholder">
+            <button id="save-profile" class="action-button" type="button" aria-label="Save profile" title="Save profile" data-i18n-aria="saveProfile" data-i18n-title="saveProfile" data-i18n="save">Save</button>
           </div>
-          <label for="saved-profiles-list">Bewaarde profielen</label>
+          <label for="saved-profiles-list" data-i18n="savedProfiles">Saved profiles</label>
           <select id="saved-profiles-list">
-            <option value="">Kies een profiel</option>
+            <option value="" data-i18n="chooseProfile">Choose a profile</option>
           </select>
           <div class="profile-actions">
-            <button id="load-profile" class="reset-button" type="button" disabled>Laden</button>
-            <button id="delete-profile" class="reset-button" type="button" disabled>Verwijderen</button>
+            <button id="load-profile" class="reset-button" type="button" disabled data-i18n="load">Load</button>
+            <button id="delete-profile" class="reset-button" type="button" disabled data-i18n="delete">Delete</button>
           </div>
           <span id="profile-status" class="save-status" role="status" aria-live="polite"></span>
         </div>
 
         <details class="settings-group" open>
-          <summary>Tekstopmaak</summary>
+          <summary data-i18n="categoryTypography">Text appearance</summary>
           <div class="settings-group-content">
             <div class="setting">
-              <label for="font-family">Lettertype</label>
+              <label for="font-family" data-i18n="fontLabel">Font</label>
               <select id="font-family">
-                <option value="system">Eenvoudig (sans-serif)</option>
-                <option value="serif">Serif</option>
-                <option value="mono">Monospace</option>
+                <option value="system" data-i18n="fontSimple">Simple (sans-serif)</option>
+                  <option value="serif" data-i18n="fontSerif">Serif</option>
+                  <option value="mono" data-i18n="fontMono">Monospace</option>
               </select>
             </div>
             <div class="setting">
               <div class="range-heading">
-                <label for="font-size">Tekstgrootte</label>
+                <label for="font-size" data-i18n="fontSizeLabel">Text size</label>
                 <output id="font-size-value" for="font-size">19 px</output>
               </div>
               <input id="font-size" type="range" min="16" max="30" value="19">
             </div>
             <div class="setting">
               <div class="range-heading">
-                <label for="line-height">Regelafstand</label>
+                <label for="line-height" data-i18n="lineHeightLabel">Line spacing</label>
                 <output id="line-height-value" for="line-height">1,7</output>
               </div>
               <input id="line-height" type="range" min="13" max="24" value="17">
             </div>
             <div class="setting">
               <div class="range-heading">
-                <label for="letter-spacing">Ruimte tussen letters</label>
+                <label for="letter-spacing" data-i18n="letterSpacingLabel">Letter spacing</label>
                 <output id="letter-spacing-value" for="letter-spacing">0 px</output>
               </div>
               <input id="letter-spacing" type="range" min="0" max="3" value="0">
             </div>
             <div class="setting">
               <div class="range-heading">
-                <label for="word-spacing">Ruimte tussen woorden</label>
+                <label for="word-spacing" data-i18n="wordSpacingLabel">Word spacing</label>
                 <output id="word-spacing-value" for="word-spacing">0 px</output>
               </div>
               <input id="word-spacing" type="range" min="0" max="16" step="1" value="0">
             </div>
             <div class="setting">
               <div class="range-heading">
-                <label for="paragraph-spacing">Ruimte tussen alinea's</label>
+                <label for="paragraph-spacing" data-i18n="paragraphSpacingLabel">Paragraph spacing</label>
                 <output id="paragraph-spacing-value" for="paragraph-spacing">1,0×</output>
               </div>
               <input id="paragraph-spacing" type="range" min="0.5" max="2.5" step="0.1" value="1">
             </div>
             <div class="setting">
               <div class="range-heading">
-                <label for="text-width">Tekstbreedte</label>
+                <label for="text-width" data-i18n="textWidthLabel">Text width</label>
                 <output id="text-width-value" for="text-width">100%</output>
               </div>
               <input id="text-width" type="range" min="50" max="100" step="5" value="100">
             </div>
             <div class="setting">
-              <label for="color-theme">Kleurthema</label>
+              <label for="color-theme" data-i18n="themeLabel">Colour theme</label>
               <select id="color-theme">
-                <option value="light">Zacht licht</option>
-                <option value="cream">Warm crème</option>
-                <option value="dark">Donker</option>
-                <option value="high-contrast">Hoog contrast</option>
+                <option value="light" data-i18n="themeLight">Soft light</option>
+                <option value="cream" data-i18n="themeCream">Warm cream</option>
+                <option value="dark" data-i18n="themeDark">Dark</option>
+                <option value="high-contrast" data-i18n="themeContrast">High contrast</option>
               </select>
             </div>
           </div>
         </details>
 
         <details class="settings-group">
-          <summary>Letter-effecten</summary>
+          <summary data-i18n="categoryEffects">Letter effects</summary>
           <div class="settings-group-content">
             <div class="setting">
               <div class="range-heading">
-                <label for="word-shuffle">Letters van plek wisselen</label>
+                <label for="word-shuffle" data-i18n="shuffleLabel">Shuffle letters within words</label>
                 <output id="word-shuffle-value" for="word-shuffle">Uit</output>
               </div>
-              <label class="toggle-setting" for="shuffle-enabled"><input id="shuffle-enabled" type="checkbox" checked> Verspringen aan</label>
+              <label class="toggle-setting" for="shuffle-enabled"><input id="shuffle-enabled" type="checkbox" checked> <span data-i18n="shuffleToggle">Shuffling on</span></label>
               <input id="word-shuffle" type="range" min="0" max="100" value="0">
             </div>
             <div class="setting">
               <div class="range-heading">
-                <label for="letter-confusion">Letters verwarren</label>
+                <label for="letter-confusion" data-i18n="confusionLabel">Confuse letters</label>
                 <output id="letter-confusion-value" for="letter-confusion">Uit</output>
               </div>
-              <label class="toggle-setting" for="confusion-enabled"><input id="confusion-enabled" type="checkbox" checked> Letterverwarring aan</label>
+              <label class="toggle-setting" for="confusion-enabled"><input id="confusion-enabled" type="checkbox" checked> <span data-i18n="confusionToggle">Letter confusion on</span></label>
               <input id="letter-confusion" type="range" min="0" max="100" value="0">
             </div>
             <div class="setting">
               <div class="range-heading">
-                <label for="letter-motion">Letters laten zweven</label>
+                <label for="letter-motion" data-i18n="motionLabel">Let letters float</label>
                 <output id="letter-motion-value" for="letter-motion">Uit</output>
               </div>
-              <label class="toggle-setting" for="motion-enabled"><input id="motion-enabled" type="checkbox" checked> Zweven aan</label>
+              <label class="toggle-setting" for="motion-enabled"><input id="motion-enabled" type="checkbox" checked> <span data-i18n="motionToggle">Floating on</span></label>
               <input id="letter-motion" type="range" min="0" max="100" value="0">
             </div>
             <div class="setting">
               <div class="range-heading">
-                <label for="shuffle-interval">Tijd tussen letterwissels</label>
+                <label for="shuffle-interval" data-i18n="shuffleIntervalLabel">Time between letter changes</label>
                 <output id="shuffle-interval-value" for="shuffle-interval">4 sec</output>
               </div>
               <input id="shuffle-interval" type="range" min="3" max="10" step="1" value="4">
             </div>
             <div class="setting">
               <div class="range-heading">
-                <label for="shuffle-duration">Duur van verplaatsen</label>
+                <label for="shuffle-duration" data-i18n="shuffleDurationLabel">Movement duration</label>
                 <output id="shuffle-duration-value" for="shuffle-duration">1,4 sec</output>
               </div>
               <input id="shuffle-duration" type="range" min="0.6" max="2.2" step="0.2" value="1.4">
             </div>
             <label class="pause-control" for="motion-paused">
               <input id="motion-paused" type="checkbox">
-              Beweging en waas pauzeren
+              <span data-i18n="pauseEffects">Pause movement and haze</span>
             </label>
           </div>
         </details>
 
         <details class="settings-group">
-          <summary>Leeswaas</summary>
+          <summary data-i18n="categoryHaze">Reading haze</summary>
           <div class="settings-group-content">
             <div class="setting">
               <div class="range-heading">
-                <label for="reading-haze">Sterkte van de leeswaas</label>
+                <label for="reading-haze" data-i18n="hazeStrengthLabel">Haze strength</label>
                 <output id="reading-haze-value" for="reading-haze">Uit</output>
               </div>
-              <label class="toggle-setting" for="haze-enabled"><input id="haze-enabled" type="checkbox" checked> Leeswaas aan</label>
+              <label class="toggle-setting" for="haze-enabled"><input id="haze-enabled" type="checkbox" checked> <span data-i18n="hazeToggle">Reading haze on</span></label>
               <input id="reading-haze" type="range" min="0" max="100" value="0">
             </div>
             <div class="setting">
-              <label for="haze-mode">Wanneer de waas verschijnt</label>
+              <label for="haze-mode" data-i18n="hazeModeLabel">When the haze appears</label>
               <select id="haze-mode">
-                <option value="intermittent">Af en toe</option>
-                <option value="constant">Continu</option>
+                <option value="intermittent" data-i18n="hazeIntermittent">Occasionally</option>
+                <option value="constant" data-i18n="hazeConstant">Continuously</option>
               </select>
             </div>
             <div class="setting">
-              <label for="haze-interval-mode">Intervaltype</label>
+              <label for="haze-interval-mode" data-i18n="hazeIntervalType">Interval type</label>
               <select id="haze-interval-mode">
-                <option value="fixed">Vast interval</option>
-                <option value="random">Willekeurig tussen 7 en 10 sec</option>
+                <option value="fixed" data-i18n="intervalFixed">Fixed interval</option>
+                <option value="random" data-i18n="intervalRandom">Random between 7 and 10 sec</option>
               </select>
             </div>
             <div class="setting">
               <div class="range-heading">
-                <label for="haze-interval">Tijd tussen waasmomenten</label>
+                <label for="haze-interval" data-i18n="hazeIntervalLabel">Time between haze moments</label>
                 <output id="haze-interval-value" for="haze-interval">8 sec</output>
               </div>
               <input id="haze-interval" type="range" min="5" max="60" step="1" value="8">
             </div>
             <div class="setting">
               <div class="range-heading">
-                <label for="haze-duration">Hoe lang de waas blijft</label>
+                <label for="haze-duration" data-i18n="hazeDurationLabel">How long the haze lasts</label>
                 <output id="haze-duration-value" for="haze-duration">2 sec</output>
               </div>
               <input id="haze-duration" type="range" min="1" max="10" step="1" value="2">
@@ -307,43 +289,43 @@
         </details>
 
         <details class="settings-group">
-          <summary>Leesliniaal</summary>
+          <summary data-i18n="categoryRuler">Reading ruler</summary>
           <div class="settings-group-content">
-            <label class="toggle-setting" for="ruler-enabled"><input id="ruler-enabled" type="checkbox"> Liniaal volgen</label>
-            <p class="helper-text">De liniaal volgt je aanwijzer over de leestekst en dimt de regels eromheen.</p>
+            <label class="toggle-setting" for="ruler-enabled"><input id="ruler-enabled" type="checkbox"> <span data-i18n="rulerToggle">Follow with ruler</span></label>
+            <p class="helper-text" data-i18n="rulerHelp">The ruler follows your pointer over the reading text and dims the surrounding lines.</p>
           </div>
         </details>
 
         <details class="settings-group">
-          <summary>Eigen verhaal</summary>
+          <summary data-i18n="categoryCustomStory">Your own story</summary>
           <div class="settings-group-content">
             <div class="setting">
-              <label for="custom-story-title">Titel</label>
-              <input id="custom-story-title" type="text" maxlength="80" placeholder="Hoi, ik ben Dinand">
+              <label for="custom-story-title" data-i18n="customTitleLabel">Title</label>
+              <input id="custom-story-title" type="text" maxlength="80" placeholder="Hi, I'm Dinand" data-i18n-placeholder="customTitlePlaceholder">
             </div>
             <div class="setting">
-              <label for="custom-story-text">Leestekst</label>
-              <textarea id="custom-story-text" rows="7" maxlength="12000" placeholder="Laat leeg om het standaardverhaal te gebruiken."></textarea>
+              <label for="custom-story-text" data-i18n="customTextLabel">Reading text</label>
+              <textarea id="custom-story-text" rows="7" maxlength="12000" placeholder="Leave empty to use the default story." data-i18n-placeholder="customTextPlaceholder"></textarea>
             </div>
             <div class="custom-story-actions">
-              <button id="apply-custom-story" class="action-button" type="button">Tekst toepassen</button>
-              <button id="reset-custom-story" class="reset-button" type="button">Standaardverhaal</button>
+              <button id="apply-custom-story" class="action-button" type="button" data-i18n="applyText">Apply text</button>
+              <button id="reset-custom-story" class="reset-button" type="button" data-i18n="defaultStory">Default story</button>
             </div>
           </div>
         </details>
 
         <div class="settings-actions">
-          <button id="reset-settings" class="reset-button" type="button">Herstel instellingen</button>
-          <span id="save-status" class="save-status" role="status" aria-live="polite">Instellingen worden bewaard op dit apparaat.</span>
+          <button id="reset-settings" class="reset-button" type="button" data-i18n="resetSettings">Reset settings</button>
+          <span id="save-status" class="save-status" role="status" aria-live="polite">Settings are saved on this device.</span>
         </div>
       </aside>
     </main>
     <footer class="site-footer">
-      Je instellingen blijven op dit apparaat. Deze pagina stelt geen diagnose en vervangt geen professioneel advies.
+      <span data-i18n="footer">Your settings stay on this device. This page is not a diagnosis and does not replace professional advice.</span>
     </footer>
     <div id="haze-overlay" class="haze-overlay">
       <button id="pause-haze" class="pause-haze-button" type="button" aria-pressed="false">
-        Pauzeer waas
+        <span data-i18n="pauseHaze">Pause haze</span>
       </button>
     </div>
     <div id="reading-ruler" class="reading-ruler" aria-hidden="true"></div>

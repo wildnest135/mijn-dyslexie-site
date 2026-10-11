@@ -7,7 +7,98 @@ const exampleText = [
   "Met mijn website hoop ik dat mensen niet alleen meer leren over dyslexie, maar ook beter begrijpen dat iedereen informatie op een andere manier kan ervaren. Ik wil bezoekers niet alleen vertellen hoe dyslexie kan voelen, maar ze er ook zelf iets van laten ervaren. Zo kunnen ze voor even ontdekken hoe het is wanneer lezen niet altijd vanzelf gaat."
 ].join("\n\n");
 
+const storiesByLanguage = {
+  en: [
+    "Hi, I'm Dinand, and I'd like to introduce myself. I have dyslexia, which can sometimes make reading and writing more difficult for me. When I read, long words can be harder to recognise, letters can seem to move around, or I may need to read a sentence several times before I fully understand it. As a result, reading can take more time and effort for me than for someone without dyslexia.",
+    "Because of my dyslexia, I sometimes experience text differently from other people. Words that are easy for one person to read can be difficult for me to recognise and understand quickly. This does not mean I cannot understand things; my brain sometimes processes information differently. Everyone reads and experiences the world in their own way, and I want to show what that can look like for me.",
+    "That is why I am making my own website for a project. I want this website to help people experience how I read, see, and experience the world with dyslexia. I want to show that reading is not the same for everyone, and that an ordinary text can feel very different to someone with dyslexia. By showing text in different ways, I hope visitors can discover how challenging it can be when letters are harder to recognise.",
+    "I have several hobbies. I enjoy exploring computers and technology, making programs with Python, and playing simulation games. I am especially interested in DCS World and Arma Reforger. In DCS World, I like flying military aircraft such as the F-16 Fighting Falcon. I am also interested in military aviation and enjoy learning about aircraft, helicopters, and the technology behind them.",
+    "Programming lets me develop my own ideas and discover how things work behind the scenes. I enjoy solving problems, learning new things, and making something that really works. Dyslexia can make some things more difficult, but it does not stop me from pursuing my interests and taking on new challenges.",
+    "With my website, I hope people will not only learn more about dyslexia, but also understand that everyone can experience information differently. I do not just want to tell visitors what dyslexia can feel like; I want them to experience something for themselves. They can briefly discover what it is like when reading does not always come easily."
+  ].join("\n\n"),
+  de: [
+    "Hallo, ich bin Dinand und möchte mich kurz vorstellen. Ich habe Legasthenie, wodurch mir Lesen und Schreiben manchmal schwerer fallen. Beim Lesen sind lange Wörter für mich oft schwieriger zu erkennen. Buchstaben scheinen sich manchmal zu verschieben, oder ich muss einen Satz mehrmals lesen, bis ich ihn ganz verstanden habe. Deshalb kostet mich Lesen manchmal mehr Zeit und Mühe als Menschen ohne Legasthenie.",
+    "Durch meine Legasthenie erlebe ich Texte manchmal anders als andere Menschen. Wörter, die für andere leicht zu lesen sind, kann ich oft nicht so schnell erkennen und verstehen. Das bedeutet nicht, dass ich Dinge nicht verstehen kann, sondern dass mein Gehirn Informationen manchmal anders verarbeitet. Jeder liest und erlebt die Welt auf seine eigene Weise. Ich möchte zeigen, wie das bei mir aussieht.",
+    "Für ein Projekt erstelle ich deshalb meine eigene Website. Damit möchte ich anderen zeigen, wie ich mit Legasthenie lese, sehe und die Welt erlebe. Lesen ist nicht für alle gleich, und ein gewöhnlicher Text kann für Menschen mit Legasthenie ganz anders wirken. Mit verschiedenen Textdarstellungen möchte ich zeigen, wie schwierig es sein kann, wenn Buchstaben schwerer zu erkennen sind.",
+    "Ich habe verschiedene Hobbys. Ich entdecke gern Computer und Technik, programmiere mit Python und spiele Simulationsspiele. Besonders interessieren mich DCS World und Arma Reforger. In DCS World fliege ich gern Militärflugzeuge wie die F-16 Fighting Falcon. Außerdem interessiere ich mich für die Militärluftfahrt und lerne gern mehr über Flugzeuge, Hubschrauber und die Technik dahinter.",
+    "Beim Programmieren kann ich meine eigenen Ideen umsetzen und herausfinden, wie Dinge im Hintergrund funktionieren. Ich löse gern Probleme, lerne Neues und entwickle etwas, das wirklich funktioniert. Meine Legasthenie kann manche Dinge schwieriger machen, aber sie hält mich nicht davon ab, meinen Interessen nachzugehen und neue Herausforderungen anzunehmen.",
+    "Mit meiner Website hoffe ich, dass Menschen mehr über Legasthenie erfahren und verstehen, dass jeder Informationen anders erleben kann. Ich möchte nicht nur erzählen, wie sich Legasthenie anfühlen kann, sondern Besucher auch etwas davon selbst erleben lassen. So können sie kurz entdecken, wie es ist, wenn Lesen nicht immer leichtfällt."
+  ].join("\n\n"),
+  nl: exampleText
+};
+
+const translations = {
+  en: {
+    pageTitle: "Read my way", brand: "Read my way", brandAria: "Read my way, home", headerNote: "A reading experience you can adjust", languageLabel: "Language", fontSerif: "Serif", fontMono: "Monospace", saveProfile: "Save profile",
+    eyebrow: "A place where reading feels different", storyLabel: "MY STORY", storyTitle: "Hi, I'm Dinand", readingTime: "10 minute read", pageHeading: "My story",
+    intro: "I'm Dinand. Below, I share a little about myself and how I experience reading with dyslexia. You can adjust how the text appears in the settings.",
+    normalRead: "Read normally", enableEffects: "Turn effects back on", normalActive: "Normal reading mode is active.", focusMode: "Focus reading mode", exitFocus: "Exit reading mode",
+    readingNote: "This is an educational reading experiment, not a true simulation of dyslexia. There is no single experience shared by everyone with dyslexia.",
+    backgroundLabel: "BACKGROUND", infoTitle: "About dyslexia and this experiment", whatIsDyslexiaTitle: "What is dyslexia?",
+    whatIsDyslexia: "Dyslexia is a learning difference that can mainly affect fluent and accurate reading and spelling. Reading may take more time and effort. It says nothing about a person's intelligence. Experiences and helpful support differ from person to person.",
+    pageDoesTitle: "What does this page do?", pageDoes: "The inspiration describes one person's experience of reading that takes concentration, and experiments with occasionally swapped letters. This page makes those letter effects adjustable and adds gentle, random movement. It is an artificial example to start a conversation about reading effort, not a depiction of how anyone's brain or vision works.",
+    useCarefullyTitle: "Use it thoughtfully", useCarefully: "Use this as a short demonstration or conversation starter, not as a test, diagnosis, or proof of what dyslexia feels like. Ask people with dyslexia about their own experiences, and let them skip or pause the effects. Font, spacing, and colour settings are personal preferences; they are not treatment and do not work the same way for everyone.",
+    readMoreTitle: "Read more", sourceGeon: "Geon — ‘Dsxyliea’ (inspiration for the letter experiment)", sourceDyslexieCentraal: "Dyslexie Centraal — information about reading difficulties and dyslexia", sourceNhs: "NHS — information about dyslexia and support (English)",
+    experienceLabel: "YOUR EXPERIENCE", contactTitle: "Share what you need", contactIntro: "Many parts of this page are adjustable. Show it to your family and friends and tell them how you experience reading. Is a setting missing, or do you have an idea for an effect? Let me know. I'll see what I can add to help you share your experience with them.", feedbackPrompt: "Have a suggestion? Share it in", discordLink: "the Discord server", orPostIt: "or post it in", issuesLink: "the GitHub repository issues", contactNote: "This page cannot show exactly what dyslexia feels like for everyone. Your own story matters most.",
+    settingsTitle: "Reading settings", settingsSubtitle: "Choose what feels comfortable for you.", presetLabel: "Start with a preset", presetMaker: "The creator's experience", presetCustom: "My settings", presetCalm: "Calm", presetEasy: "Easy reading", presetSpacious: "Extra spacing", presetContrast: "Higher contrast", presetHelp: "These are starting points, not fixed profiles or diagnoses.",
+    saveOwnProfile: "Save a custom profile", savedProfiles: "Saved profiles", chooseProfile: "Choose a profile", save: "Save", load: "Load", delete: "Delete", profileNamePlaceholder: "Profile name", customTitlePlaceholder: "Hi, I'm Dinand",
+    categoryTypography: "Text appearance", fontLabel: "Font", fontSimple: "Simple (sans-serif)", fontSizeLabel: "Text size", lineHeightLabel: "Line spacing", letterSpacingLabel: "Letter spacing", wordSpacingLabel: "Word spacing", paragraphSpacingLabel: "Paragraph spacing", textWidthLabel: "Text width", themeLabel: "Colour theme", themeLight: "Soft light", themeCream: "Warm cream", themeDark: "Dark", themeContrast: "High contrast",
+    categoryEffects: "Letter effects", shuffleLabel: "Shuffle letters within words", shuffleToggle: "Shuffling on", confusionLabel: "Confuse letters", confusionToggle: "Letter confusion on", motionLabel: "Let letters float", motionToggle: "Floating on", shuffleIntervalLabel: "Time between letter changes", shuffleDurationLabel: "Movement duration", pauseEffects: "Pause movement and haze",
+    categoryHaze: "Reading haze", hazeStrengthLabel: "Haze strength", hazeToggle: "Reading haze on", hazeModeLabel: "When the haze appears", hazeIntermittent: "Occasionally", hazeConstant: "Continuously", hazeIntervalType: "Interval type", intervalFixed: "Fixed interval", intervalRandom: "Random between 7 and 10 sec", hazeIntervalLabel: "Time between haze moments", hazeDurationLabel: "How long the haze lasts",
+    categoryRuler: "Reading ruler", rulerToggle: "Follow with ruler", rulerHelp: "The ruler follows your pointer over the reading text and dims the surrounding lines.", categoryCustomStory: "Your own story", customTitleLabel: "Title", customTextLabel: "Reading text", customTextPlaceholder: "Leave empty to use the default story.", applyText: "Apply text", defaultStory: "Default story", resetSettings: "Reset settings", saveStatus: "Settings are saved on this device.", footer: "Your settings stay on this device. This page is not a diagnosis and does not replace professional advice.", pauseHaze: "Pause haze",
+    savedLocally: "Settings saved on this device.", saveFailed: "Could not save; your settings will only last while this page is open.", storageUnavailable: "Storage is unavailable; settings will only last while this page is open.", readSettingsFailed: "Saved settings could not be read; default settings are being used.", profilesSaved: "Profiles saved on this device.", profileSaveFailed: "Could not save profiles; check available browser storage.", enterProfileName: "Enter a name for this profile first.", maxProfiles: "You can save up to 30 profiles.", profileApplied: "Profile ‘{name}’ applied.", normalStatus: "The text is back to normal. You can start reading again from the top.", hazeIntervalRandomValue: "7–10 sec (random)", off: "Off", seconds: "sec", resumeEffects: "Resume effects"
+  },
+  de: {
+    pageTitle: "Lies auf meine Weise", brand: "Lies auf meine Weise", brandAria: "Lies auf meine Weise, Startseite", headerNote: "Ein Leseerlebnis zum Anpassen", languageLabel: "Sprache", fontSerif: "Serifenschrift", fontMono: "Monospace", saveProfile: "Profil speichern",
+    eyebrow: "Ein Ort, an dem sich Lesen anders anfühlt", storyLabel: "MEINE GESCHICHTE", storyTitle: "Hallo, ich bin Dinand", readingTime: "10 Minuten Lesezeit", pageHeading: "Meine Geschichte",
+    intro: "Ich bin Dinand. Hier erzähle ich etwas über mich und darüber, wie ich das Lesen mit Legasthenie erlebe. In den Einstellungen kannst du die Textdarstellung anpassen.",
+    normalRead: "Text normal lesen", enableEffects: "Effekte wieder einschalten", normalActive: "Der normale Lesemodus ist aktiv.", focusMode: "Ruhiger Lesemodus", exitFocus: "Lesemodus beenden",
+    readingNote: "Dies ist ein pädagogisches Leseexperiment und keine echte Simulation von Legasthenie. Es gibt nicht nur eine einzige Erfahrung, die für alle Menschen mit Legasthenie gilt.",
+    backgroundLabel: "HINTERGRUND", infoTitle: "Über Legasthenie und dieses Experiment", whatIsDyslexiaTitle: "Was ist Legasthenie?",
+    whatIsDyslexia: "Legasthenie ist eine Lernbesonderheit, die vor allem flüssiges und genaues Lesen und Schreiben beeinflussen kann. Lesen kann dadurch mehr Zeit und Mühe kosten. Das sagt nichts über die Intelligenz eines Menschen aus. Erfahrungen und hilfreiche Unterstützung sind von Person zu Person verschieden.",
+    pageDoesTitle: "Was macht diese Seite?", pageDoes: "Die Inspiration beschreibt die persönliche Erfahrung, dass Lesen viel Konzentration erfordern kann, und experimentiert mit gelegentlich vertauschten Buchstaben. Auf dieser Seite lassen sich die Buchstabeneffekte einstellen; außerdem gibt es leichte, zufällige Bewegungen. Das ist ein künstliches Beispiel für ein Gespräch über die Anstrengung beim Lesen und keine Darstellung davon, wie das Gehirn oder Sehen eines Menschen funktioniert.",
+    useCarefullyTitle: "Bitte bewusst verwenden", useCarefully: "Verwende dies als kurze Demonstration oder Gesprächsanstoß, nicht als Test, Diagnose oder Beweis dafür, wie sich Legasthenie anfühlt. Frage Menschen mit Legasthenie nach ihren eigenen Erfahrungen und lass sie die Effekte überspringen oder pausieren. Schriftart, Abstände und Farben sind persönliche Vorlieben; sie sind keine Behandlung und wirken nicht bei allen gleich.",
+    readMoreTitle: "Weiterlesen", sourceGeon: "Geon — ‘Dsxyliea’ (Inspiration für das Buchstabenexperiment)", sourceDyslexieCentraal: "Dyslexie Centraal — Informationen zu Leseschwierigkeiten und Legasthenie", sourceNhs: "NHS — Informationen zu Legasthenie und Unterstützung (Englisch)",
+    experienceLabel: "DEINE ERFAHRUNG", contactTitle: "Teile, was du brauchst", contactIntro: "Viele Bereiche dieser Seite lassen sich anpassen. Zeige sie deiner Familie und deinen Freunden und erzähle ihnen, wie du das Lesen erlebst. Fehlt eine Einstellung oder hast du eine Idee für einen Effekt? Sag mir Bescheid. Ich schaue, was ich ergänzen kann, damit du deine Erfahrung mit ihnen teilen kannst.", feedbackPrompt: "Hast du einen Vorschlag? Teile ihn auf", discordLink: "dem Discord-Server", orPostIt: "oder schreibe ihn in die", issuesLink: "GitHub-Repository-Issues", contactNote: "Diese Seite kann nicht genau zeigen, wie sich Legasthenie für alle anfühlt. Deine eigene Geschichte ist am wichtigsten.",
+    settingsTitle: "Leseeinstellungen", settingsSubtitle: "Wähle, was sich für dich angenehm anfühlt.", presetLabel: "Mit einem Profil beginnen", presetMaker: "Die Erfahrung des Erstellers", presetCustom: "Meine Einstellungen", presetCalm: "Ruhig", presetEasy: "Leichter lesen", presetSpacious: "Mehr Abstand", presetContrast: "Hoher Kontrast", presetHelp: "Dies sind Ausgangspunkte, keine festen Profile oder Diagnosen.",
+    saveOwnProfile: "Eigenes Profil speichern", savedProfiles: "Gespeicherte Profile", chooseProfile: "Profil auswählen", save: "Speichern", load: "Laden", delete: "Löschen", profileNamePlaceholder: "Profilname", customTitlePlaceholder: "Hallo, ich bin Dinand",
+    categoryTypography: "Textdarstellung", fontLabel: "Schriftart", fontSimple: "Einfach (serifenlos)", fontSizeLabel: "Textgröße", lineHeightLabel: "Zeilenabstand", letterSpacingLabel: "Buchstabenabstand", wordSpacingLabel: "Wortabstand", paragraphSpacingLabel: "Absatzabstand", textWidthLabel: "Textbreite", themeLabel: "Farbschema", themeLight: "Sanft hell", themeCream: "Warmes Creme", themeDark: "Dunkel", themeContrast: "Hoher Kontrast",
+    categoryEffects: "Buchstabeneffekte", shuffleLabel: "Buchstaben im Wort vertauschen", shuffleToggle: "Vertauschen an", confusionLabel: "Buchstaben verwechseln", confusionToggle: "Buchstabenverwechslung an", motionLabel: "Buchstaben schweben lassen", motionToggle: "Schweben an", shuffleIntervalLabel: "Zeit zwischen Buchstabenwechseln", shuffleDurationLabel: "Bewegungsdauer", pauseEffects: "Bewegung und Schleier pausieren",
+    categoryHaze: "Leseschleier", hazeStrengthLabel: "Stärke des Schleiers", hazeToggle: "Leseschleier an", hazeModeLabel: "Wann der Schleier erscheint", hazeIntermittent: "Gelegentlich", hazeConstant: "Dauerhaft", hazeIntervalType: "Intervalltyp", intervalFixed: "Festes Intervall", intervalRandom: "Zufällig zwischen 7 und 10 Sek.", hazeIntervalLabel: "Zeit zwischen Schleiermomenten", hazeDurationLabel: "Dauer des Schleiers",
+    categoryRuler: "Leselineal", rulerToggle: "Lineal folgen lassen", rulerHelp: "Das Lineal folgt deinem Mauszeiger über dem Lesetext und blendet die umliegenden Zeilen ab.", categoryCustomStory: "Eigene Geschichte", customTitleLabel: "Titel", customTextLabel: "Lesetext", customTextPlaceholder: "Leer lassen, um die Standardgeschichte zu verwenden.", applyText: "Text übernehmen", defaultStory: "Standardgeschichte", resetSettings: "Einstellungen zurücksetzen", saveStatus: "Einstellungen werden auf diesem Gerät gespeichert.", footer: "Deine Einstellungen bleiben auf diesem Gerät. Diese Seite stellt keine Diagnose und ersetzt keine professionelle Beratung.", pauseHaze: "Schleier pausieren",
+    savedLocally: "Einstellungen auf diesem Gerät gespeichert.", saveFailed: "Speichern fehlgeschlagen; die Einstellungen gelten nur, solange diese Seite geöffnet ist.", storageUnavailable: "Speicher nicht verfügbar; Einstellungen gelten nur, solange diese Seite geöffnet ist.", readSettingsFailed: "Gespeicherte Einstellungen konnten nicht gelesen werden; Standardeinstellungen werden verwendet.", profilesSaved: "Profile auf diesem Gerät gespeichert.", profileSaveFailed: "Profile konnten nicht gespeichert werden; prüfe den verfügbaren Browserspeicher.", enterProfileName: "Gib zuerst einen Namen für dieses Profil ein.", maxProfiles: "Du kannst höchstens 30 Profile speichern.", profileApplied: "Profil ‘{name}’ wurde angewendet.", normalStatus: "Der Text wird wieder normal angezeigt. Du kannst oben erneut mit dem Lesen beginnen.", hazeIntervalRandomValue: "7–10 Sek. (zufällig)", off: "Aus", seconds: "Sek.", resumeEffects: "Effekte fortsetzen"
+  },
+  nl: {
+    pageTitle: "Lees op mijn manier", brand: "Lees op mijn manier", brandAria: "Lees op jouw manier, startpagina", headerNote: "Een leeservaring die je zelf instelt", languageLabel: "Taal", fontSerif: "Serif", fontMono: "Monospace", saveProfile: "Profiel opslaan",
+    eyebrow: "Een plek waar lezen anders is", storyLabel: "MIJN VERHAAL", storyTitle: "Hoi, ik ben Dinand", readingTime: "10 minuten lezen", pageHeading: "Mijn verhaal",
+    intro: "Ik ben Dinand. Hieronder vertel ik iets over mezelf en over hoe ik lezen met dyslexie ervaar. Met de instellingen kun je de tekstweergave aanpassen.",
+    normalRead: "Lees deze tekst normaal", enableEffects: "Effecten weer aanzetten", normalActive: "De normale leesstand is actief.", focusMode: "Rustige leesstand", exitFocus: "Leesstand afsluiten",
+    readingNote: "Dit is een educatief leesexperiment, geen echte simulatie van dyslexie. Er is geen één ervaring die voor iedereen met dyslexie geldt.",
+    backgroundLabel: "ACHTERGROND", infoTitle: "Over dyslexie en dit experiment", whatIsDyslexiaTitle: "Wat is dyslexie?",
+    whatIsDyslexia: "Dyslexie is een leerstoornis die vooral invloed kan hebben op vlot en nauwkeurig lezen en spellen. Lezen kan daardoor meer tijd en inspanning kosten. Het zegt niets over iemands intelligentie. Hoe iemand het ervaart en welke ondersteuning helpt, verschilt per persoon.",
+    pageDoesTitle: "Wat doet deze pagina?", pageDoes: "De inspiratiebron beschrijft één persoonlijke ervaring van lezen dat veel concentratie vraagt, en experimenteert met af en toe verwisselde letters in woorden. Deze pagina maakt dat letter-effect instelbaar en voegt kleine, willekeurige bewegingen toe. Het is een kunstmatig voorbeeld om over leesinspanning te praten, geen weergave van wat iemands brein of zicht doet.",
+    useCarefullyTitle: "Gebruik het met aandacht", useCarefully: "Gebruik dit als korte demonstratie of gesprekstarter, niet als test, diagnose of bewijs van hoe dyslexie voelt. Vraag mensen met dyslexie zelf naar hun ervaring en laat hen de effecten overslaan of pauzeren. De instellingen voor lettertype, ruimte en kleur zijn persoonlijke voorkeuren; ze zijn geen behandeling en werken niet voor iedereen hetzelfde.",
+    readMoreTitle: "Meer lezen", sourceGeon: "Geon — ‘Dsxyliea’ (inspiratie voor het letterexperiment)", sourceDyslexieCentraal: "Dyslexie Centraal — informatie over leesproblemen en dyslexie", sourceNhs: "NHS — informatie over dyslexie en ondersteuning (Engels)",
+    experienceLabel: "JOUW ERVARING", contactTitle: "Deel wat jij nodig hebt", contactIntro: "Veel onderdelen van deze pagina zijn aanpasbaar. Laat je familie en vrienden de pagina zien en vertel hoe jij lezen ervaart. Mist er iets in de instellingen of heb je een idee voor een effect? Laat het me weten; ik kijk wat ik kan toevoegen zodat je jouw ervaring met hen kunt delen.", feedbackPrompt: "Heb je een suggestie? Deel die in", discordLink: "de Discord-server", orPostIt: "of plaats die bij", issuesLink: "de GitHub-repo-issues", contactNote: "Deze pagina kan niet precies laten zien hoe dyslexie voor iedereen voelt. Jouw eigen verhaal blijft het belangrijkst.",
+    settingsTitle: "Leesinstellingen", settingsSubtitle: "Kies wat voor jou prettig voelt.", presetLabel: "Begin met een startpunt", presetMaker: "Hoe de maker het ervaart", presetCustom: "Mijn instellingen", presetCalm: "Rustig", presetEasy: "Makkelijk lezen", presetSpacious: "Extra ruimte", presetContrast: "Meer contrast", presetHelp: "Dit zijn startpunten, geen vaste profielen of diagnoses.",
+    saveOwnProfile: "Eigen profiel bewaren", savedProfiles: "Bewaarde profielen", chooseProfile: "Kies een profiel", save: "Opslaan", load: "Laden", delete: "Verwijderen", profileNamePlaceholder: "Naam van profiel", customTitlePlaceholder: "Hoi, ik ben Dinand",
+    categoryTypography: "Tekstopmaak", fontLabel: "Lettertype", fontSimple: "Eenvoudig (sans-serif)", fontSizeLabel: "Tekstgrootte", lineHeightLabel: "Regelafstand", letterSpacingLabel: "Ruimte tussen letters", wordSpacingLabel: "Ruimte tussen woorden", paragraphSpacingLabel: "Ruimte tussen alinea's", textWidthLabel: "Tekstbreedte", themeLabel: "Kleurthema", themeLight: "Zacht licht", themeCream: "Warm crème", themeDark: "Donker", themeContrast: "Hoog contrast",
+    categoryEffects: "Letter-effecten", shuffleLabel: "Letters van plek wisselen", shuffleToggle: "Verspringen aan", confusionLabel: "Letters verwarren", confusionToggle: "Letterverwarring aan", motionLabel: "Letters laten zweven", motionToggle: "Zweven aan", shuffleIntervalLabel: "Tijd tussen letterwissels", shuffleDurationLabel: "Duur van verplaatsen", pauseEffects: "Beweging en waas pauzeren",
+    categoryHaze: "Leeswaas", hazeStrengthLabel: "Sterkte van de leeswaas", hazeToggle: "Leeswaas aan", hazeModeLabel: "Wanneer de waas verschijnt", hazeIntermittent: "Af en toe", hazeConstant: "Continu", hazeIntervalType: "Intervaltype", intervalFixed: "Vast interval", intervalRandom: "Willekeurig tussen 7 en 10 sec", hazeIntervalLabel: "Tijd tussen waasmomenten", hazeDurationLabel: "Hoe lang de waas blijft",
+    categoryRuler: "Leesliniaal", rulerToggle: "Liniaal volgen", rulerHelp: "De liniaal volgt je aanwijzer over de leestekst en dimt de regels eromheen.", categoryCustomStory: "Eigen verhaal", customTitleLabel: "Titel", customTextLabel: "Leestekst", customTextPlaceholder: "Laat leeg om het standaardverhaal te gebruiken.", applyText: "Tekst toepassen", defaultStory: "Standaardverhaal", resetSettings: "Herstel instellingen", saveStatus: "Instellingen worden bewaard op dit apparaat.", footer: "Je instellingen blijven op dit apparaat. Deze pagina stelt geen diagnose en vervangt geen professioneel advies.", pauseHaze: "Pauzeer waas",
+    savedLocally: "Instellingen bewaard op dit apparaat.", saveFailed: "Opslaan is niet gelukt; je instellingen gelden alleen zolang deze pagina open is.", storageUnavailable: "Opslag is niet beschikbaar; instellingen gelden alleen zolang deze pagina open is.", readSettingsFailed: "Bewaarde instellingen konden niet worden gelezen; de standaardinstellingen worden gebruikt.", profilesSaved: "Profielen bewaard op dit apparaat.", profileSaveFailed: "Profielen opslaan is niet gelukt; controleer de beschikbare browseropslag.", enterProfileName: "Vul eerst een naam in voor dit profiel.", maxProfiles: "Je kunt maximaal 30 profielen bewaren.", profileApplied: "Profiel ‘{name}’ toegepast.", normalStatus: "De tekst staat weer normaal. Je kunt bovenaan opnieuw beginnen.", hazeIntervalRandomValue: "7–10 sec (willekeurig)", off: "Uit", seconds: "sec", resumeEffects: "Effecten hervatten"
+  }
+};
+
+let currentLanguage = "en";
+
+function translate(key, values = {}) {
+  const template = translations[currentLanguage]?.[key] ?? translations.en[key] ?? key;
+  return template.replace(/\{(\w+)\}/gu, (_, name) => values[name] ?? "");
+}
+
 const defaultSettings = {
+  language: "en",
   preset: "maker",
   font: "system",
   fontSize: 19,
@@ -75,6 +166,9 @@ const presets = {
 };
 
 const controls = {
+  language: document.querySelector("#language-select"),
+  languageMenuToggle: document.querySelector("#language-menu-toggle"),
+  languageMenu: document.querySelector("#language-menu"),
   font: document.querySelector("#font-family"),
   fontSize: document.querySelector("#font-size"),
   lineHeight: document.querySelector("#line-height"),
@@ -145,7 +239,7 @@ function readSettings() {
     if (stored === null) stored = localStorage.getItem("lees-op-mijn-manier");
   } catch (error) {
     console.error("De bewaarde leesinstellingen konden niet worden geopend.", error);
-    output.saveStatus.textContent = "Opslag is niet beschikbaar; instellingen gelden alleen zolang deze pagina open is.";
+    output.saveStatus.textContent = translate("storageUnavailable");
     return { ...defaultSettings };
   }
   if (!stored) return { ...defaultSettings };
@@ -158,6 +252,7 @@ function readSettings() {
     return {
       ...defaultSettings,
       ...parsed,
+      language: ["en", "de", "nl"].includes(parsed.language) ? parsed.language : defaultSettings.language,
       preset: ["maker", "custom", "calm", "spacious", "contrast"].includes(parsed.preset)
         || parsed.preset === "makkelijk-lezen"
         ? parsed.preset
@@ -216,7 +311,7 @@ function readSettings() {
     };
   } catch (error) {
     console.error("De bewaarde leesinstellingen konden niet worden gelezen.", error);
-    output.saveStatus.textContent = "Bewaarde instellingen konden niet worden gelezen; de standaardinstellingen worden gebruikt.";
+    output.saveStatus.textContent = translate("readSettingsFailed");
     return { ...defaultSettings };
   }
 }
@@ -228,6 +323,7 @@ function clamp(value, min, max, fallback) {
 
 function normalizeProfileSettings(profileSettings) {
   const normalized = { ...defaultSettings, ...profileSettings };
+  normalized.language = ["en", "de", "nl"].includes(normalized.language) ? normalized.language : defaultSettings.language;
   normalized.preset = "custom";
   normalized.font = ["system", "serif", "mono"].includes(normalized.font) ? normalized.font : defaultSettings.font;
   normalized.theme = ["light", "cream", "dark", "high-contrast"].includes(normalized.theme)
@@ -285,7 +381,7 @@ let savedProfiles = readSavedProfiles();
 
 function renderSavedProfiles() {
   const selectedId = controls.savedProfiles.value;
-  controls.savedProfiles.replaceChildren(new Option("Kies een profiel", ""));
+  controls.savedProfiles.replaceChildren(new Option(translate("chooseProfile"), ""));
   savedProfiles.forEach((profile) => {
     const option = new Option(profile.name, profile.id);
     controls.savedProfiles.append(option);
@@ -299,11 +395,11 @@ function renderSavedProfiles() {
 function persistSavedProfiles() {
   try {
     localStorage.setItem("lees-op-jouw-manier-profielen", JSON.stringify(savedProfiles));
-    output.profileStatus.textContent = "Profielen bewaard op dit apparaat.";
+    output.profileStatus.textContent = translate("profilesSaved");
     return true;
   } catch (error) {
     console.error("Profielen konden niet worden bewaard.", error);
-    output.profileStatus.textContent = "Opslaan is niet gelukt; controleer de beschikbare browseropslag.";
+    output.profileStatus.textContent = translate("profileSaveFailed");
     return false;
   }
 }
@@ -314,6 +410,31 @@ let hazeTimer = null;
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 function applySettings() {
+  currentLanguage = settings.language;
+  controls.language.value = settings.language;
+  const languageNames = { en: "English", de: "Deutsch", nl: "Nederlands" };
+  document.querySelector("#language-code").textContent = settings.language.toUpperCase();
+  document.querySelector("#language-name").textContent = languageNames[settings.language];
+  document.querySelectorAll(".language-option").forEach((option) => {
+    const selected = option.dataset.language === settings.language;
+    option.setAttribute("aria-selected", String(selected));
+    option.tabIndex = selected ? 0 : -1;
+  });
+  document.documentElement.lang = settings.language;
+  document.title = translate("pageTitle");
+  renderSavedProfiles();
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    element.textContent = translate(element.dataset.i18n);
+  });
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+    element.placeholder = translate(element.dataset.i18nPlaceholder);
+  });
+  document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
+    element.setAttribute("aria-label", translate(element.dataset.i18nAria));
+  });
+  document.querySelectorAll("[data-i18n-title]").forEach((element) => {
+    element.title = translate(element.dataset.i18nTitle);
+  });
   controls.font.value = settings.font;
   controls.fontSize.value = settings.fontSize;
   controls.lineHeight.value = settings.lineHeight;
@@ -343,7 +464,7 @@ function applySettings() {
   controls.hazeDuration.disabled = settings.hazeMode === "constant";
   controls.hazeIntervalMode.disabled = settings.hazeMode === "constant";
   output.preset.value = settings.preset;
-  output.readingTitle.textContent = settings.customTitle.trim() || "Hoi, ik ben Dinand";
+  output.readingTitle.textContent = settings.customTitle.trim() || translate("storyTitle");
   controls.motionPaused.checked = settings.motionPaused;
 
   const textStyle = output.readingText.style;
@@ -374,23 +495,24 @@ function applySettings() {
   output.wordSpacing.value = `${settings.wordSpacing} px`;
   output.paragraphSpacing.value = `${settings.paragraphSpacing.toFixed(1).replace(".", ",")}×`;
   output.textWidth.value = `${settings.textWidth}%`;
-  output.scramble.value = !settings.shuffleEnabled || settings.scramble === 0 ? "Uit" : `${settings.scramble}%`;
-  output.confusion.value = !settings.confusionEnabled || settings.confusion === 0 ? "Uit" : `${settings.confusion}%`;
-  output.motion.value = !settings.motionEnabled || settings.motion === 0 ? "Uit" : `${settings.motion}%`;
-  output.shuffleInterval.value = `${settings.shuffleInterval} sec`;
-  output.shuffleDuration.value = `${settings.shuffleDuration.toFixed(1).replace(".", ",")} sec`;
-  output.haze.value = !settings.hazeEnabled || settings.haze === 0 ? "Uit" : `${settings.haze}%`;
+  output.scramble.value = !settings.shuffleEnabled || settings.scramble === 0 ? translate("off") : `${settings.scramble}%`;
+  output.confusion.value = !settings.confusionEnabled || settings.confusion === 0 ? translate("off") : `${settings.confusion}%`;
+  output.motion.value = !settings.motionEnabled || settings.motion === 0 ? translate("off") : `${settings.motion}%`;
+  output.shuffleInterval.value = `${settings.shuffleInterval} ${translate("seconds")}`;
+  output.shuffleDuration.value = `${settings.shuffleDuration.toFixed(1).replace(".", currentLanguage === "en" ? "." : ",")} ${translate("seconds")}`;
+  output.haze.value = !settings.hazeEnabled || settings.haze === 0 ? translate("off") : `${settings.haze}%`;
   output.hazeInterval.value = settings.hazeIntervalMode === "random"
-    ? "7–10 sec (willekeurig)"
-    : `${settings.hazeInterval} sec`;
-  output.hazeDuration.value = `${settings.hazeDuration} sec`;
+    ? translate("hazeIntervalRandomValue")
+    : `${settings.hazeInterval} ${translate("seconds")}`;
+  output.hazeDuration.value = `${settings.hazeDuration} ${translate("seconds")}`;
   output.pauseHaze.setAttribute("aria-pressed", String(settings.motionPaused));
-  output.pauseHaze.textContent = settings.motionPaused ? "Hervat effecten" : "Pauzeer waas";
+  output.pauseHaze.textContent = translate(settings.motionPaused ? "resumeEffects" : "pauseHaze");
   output.normalReading.setAttribute("aria-pressed", String(settings.normalReading));
-  output.normalReading.textContent = settings.normalReading ? "Zet effecten weer aan" : "Lees deze tekst normaal";
-  output.normalReadingStatus.textContent = settings.normalReading ? "Normale leesstand is actief." : "";
+  output.normalReading.textContent = translate(settings.normalReading ? "enableEffects" : "normalRead");
+  output.normalReadingStatus.textContent = settings.normalReading ? translate("normalActive") : "";
+  output.saveStatus.textContent = translate("savedLocally");
   output.focusModeToggle.setAttribute("aria-pressed", String(settings.focusMode));
-  output.focusModeToggle.textContent = settings.focusMode ? "Leesstand afsluiten" : "Rustige leesstand";
+  output.focusModeToggle.textContent = translate(settings.focusMode ? "exitFocus" : "focusMode");
   renderText();
   syncEffectTimer();
   syncHaze();
@@ -485,7 +607,7 @@ let renderedWords = [];
 let renderedMotion = null;
 
 function renderText() {
-  const source = settings.customText.trim() || exampleText;
+  const source = settings.customText.trim() || storiesByLanguage[settings.language];
   const sourceParagraphs = source.split(/\n+/u).filter(Boolean);
   const needsRebuild = sourceParagraphs.length !== renderedSourceParagraphs.length ||
     sourceParagraphs.some((paragraph, index) => paragraph !== renderedSourceParagraphs[index]);
@@ -617,10 +739,10 @@ function renderText() {
 function saveSettings() {
   try {
     localStorage.setItem("lees-op-jouw-manier", JSON.stringify(settings));
-    output.saveStatus.textContent = "Instellingen bewaard op dit apparaat.";
+    output.saveStatus.textContent = translate("savedLocally");
   } catch (error) {
     console.error("De leesinstellingen konden niet worden bewaard.", error);
-    output.saveStatus.textContent = "Opslaan is niet gelukt; je instellingen gelden alleen zolang deze pagina open is.";
+    output.saveStatus.textContent = translate("saveFailed");
   }
 }
 
@@ -659,16 +781,74 @@ controls.hazeInterval.addEventListener("input", () => updateSetting("hazeInterva
 controls.hazeDuration.addEventListener("input", () => updateSetting("hazeDuration", Number(controls.hazeDuration.value)));
 controls.motionPaused.addEventListener("change", () => updateSetting("motionPaused", controls.motionPaused.checked));
 controls.rulerEnabled.addEventListener("change", () => updateSetting("rulerEnabled", controls.rulerEnabled.checked));
+controls.language.addEventListener("change", () => {
+  settings.language = controls.language.value;
+  applySettings();
+  saveSettings();
+});
+controls.languageMenuToggle.addEventListener("click", () => {
+  const opening = controls.languageMenu.hidden;
+  controls.languageMenu.hidden = !opening;
+  controls.languageMenuToggle.setAttribute("aria-expanded", String(opening));
+  if (opening) {
+    controls.languageMenu.querySelector(`[data-language="${settings.language}"]`)?.focus();
+  }
+});
+controls.languageMenu.addEventListener("click", (event) => {
+  const option = event.target.closest("[data-language]");
+  if (!option) return;
+  controls.language.value = option.dataset.language;
+  controls.language.dispatchEvent(new Event("change", { bubbles: true }));
+  controls.languageMenu.hidden = true;
+  controls.languageMenuToggle.setAttribute("aria-expanded", "false");
+  controls.languageMenuToggle.focus();
+});
+controls.languageMenu.addEventListener("keydown", (event) => {
+  const options = [...controls.languageMenu.querySelectorAll("[data-language]")];
+  const currentIndex = options.indexOf(document.activeElement);
+  let nextIndex = currentIndex;
+  if (event.key === "ArrowDown") nextIndex = (currentIndex + 1) % options.length;
+  else if (event.key === "ArrowUp") nextIndex = (currentIndex - 1 + options.length) % options.length;
+  else if (event.key === "Home") nextIndex = 0;
+  else if (event.key === "End") nextIndex = options.length - 1;
+  else if (event.key === "Escape") {
+    controls.languageMenu.hidden = true;
+    controls.languageMenuToggle.setAttribute("aria-expanded", "false");
+    controls.languageMenuToggle.focus();
+    event.preventDefault();
+    return;
+  } else if (event.key === "Enter" || event.key === " ") {
+    document.activeElement.click();
+    event.preventDefault();
+    return;
+  } else {
+    return;
+  }
+  event.preventDefault();
+  options[nextIndex].focus();
+});
+controls.languageMenuToggle.addEventListener("keydown", (event) => {
+  if (event.key !== "ArrowDown" && event.key !== "ArrowUp") return;
+  event.preventDefault();
+  controls.languageMenu.hidden = false;
+  controls.languageMenuToggle.setAttribute("aria-expanded", "true");
+  controls.languageMenu.querySelector(`[data-language="${settings.language}"]`)?.focus();
+});
+document.addEventListener("pointerdown", (event) => {
+  if (event.target.closest(".language-control")) return;
+  controls.languageMenu.hidden = true;
+  controls.languageMenuToggle.setAttribute("aria-expanded", "false");
+});
 controls.savedProfiles.addEventListener("change", renderSavedProfiles);
 output.saveProfile.addEventListener("click", () => {
   const name = controls.savedProfileName.value.trim();
   if (!name) {
-    output.profileStatus.textContent = "Vul eerst een naam in voor dit profiel.";
+    output.profileStatus.textContent = translate("enterProfileName");
     controls.savedProfileName.focus();
     return;
   }
   if (savedProfiles.length >= 30) {
-    output.profileStatus.textContent = "Je kunt maximaal 30 profielen bewaren.";
+    output.profileStatus.textContent = translate("maxProfiles");
     return;
   }
   const id = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
@@ -689,7 +869,7 @@ output.loadProfile.addEventListener("click", () => {
   settings = normalizeProfileSettings(profile.settings);
   applySettings();
   saveSettings();
-  output.profileStatus.textContent = `Profiel '${profile.name}' toegepast.`;
+  output.profileStatus.textContent = translate("profileApplied", { name: profile.name });
 });
 output.deleteProfile.addEventListener("click", () => {
   const selectedId = controls.savedProfiles.value;
@@ -746,6 +926,7 @@ output.normalReading.addEventListener("click", () => {
   settings.preset = "custom";
   applySettings();
   saveSettings();
+  output.normalReadingStatus.textContent = settings.normalReading ? translate("normalStatus") : "";
   output.readingText.scrollIntoView({
     behavior: reducedMotionQuery.matches ? "auto" : "smooth",
     block: "start"

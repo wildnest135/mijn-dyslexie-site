@@ -2,6 +2,8 @@
 
 Een statische website met Dinands verhaal en een leesweergave die je zelf kunt aanpassen. De site gebruikt alleen HTML, CSS en JavaScript: er zijn geen installatie, server of externe JavaScript-pakketten nodig.
 
+De website is beschikbaar in het Engels (**EN**), Duits (**DE**) en Nederlands (**NL**). Engels is de standaardtaal bij een eerste bezoek. De gekozen taal wordt lokaal in de browser onthouden. De interface en het standaardverhaal veranderen mee; zelf ingevoerde verhalen blijven staan zoals ze zijn ingevoerd.
+
 ## Lokaal openen
 
 Open `index.html` in een browser. Voor wijzigingen kun je de pagina opnieuw laden.
