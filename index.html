@@ -47,7 +47,7 @@
               <p class="card-label" data-i18n="storyLabel">MY STORY</p>
               <h2 id="reading-title">Hi, I'm Dinand</h2>
             </div>
-            <span class="reading-time" data-i18n="readingTime">15 to 20 minute read</span>
+            <span class="reading-time" data-i18n="readingTime">10 to 15 minute reading time</span>
           </div>
           <div id="reading-text" class="reading-text"></div>
           <div class="reading-actions">
@@ -83,6 +83,74 @@
               <li><a href="https://www.nhs.uk/conditions/dyslexia-in-children/" target="_blank" rel="noopener noreferrer" data-i18n="sourceNhs">NHS — information about dyslexia and support (English)</a></li>
             </ul>
           </div>
+        </section>
+
+        <section class="info-section research-section" aria-labelledby="research-title">
+          <p class="card-label" data-i18n="researchLabel">RESEARCH AND EXPERIENCE</p>
+          <h2 id="research-title" data-i18n="researchTitle">A closer look at dyslexia</h2>
+          <p class="research-intro" data-i18n="researchIntro">This short overview draws on research and health information. It is general information, not a diagnosis or a description that fits everyone.</p>
+
+          <details class="research-topic">
+            <summary data-i18n="readingExperienceTitle">Why can reading take more effort?</summary>
+            <div class="research-topic-content">
+              <p data-i18n="readingExperienceBody">Reading involves recognising written words, linking letters with speech sounds, and building meaning from sentences. For some people with dyslexia, recognising words accurately or quickly is less automatic. More attention may go into working out words, leaving less available to hold on to the meaning of a long sentence. A reader may go back and read it again, even when they understand the ideas perfectly well.</p>
+              <p data-i18n="readingExampleBody">For example, one reader may recognise a long word straight away, while another needs to sound it out and then reread the sentence to reconnect with its meaning. This is only an illustration: people with dyslexia read in many different ways.</p>
+            </div>
+          </details>
+
+          <details class="research-topic">
+            <summary data-i18n="dailyLifeTitle">Possible experiences in daily life</summary>
+            <div class="research-topic-content">
+              <p data-i18n="dailyLifeBody">Reading and spelling may be slow or tiring; written instructions, unfamiliar names, or reading aloud may take extra effort. After a long text, someone may feel mentally tired, lose the thread, or need a break. Other people may mainly notice spelling or planning tasks, and some people experience few difficulties in particular situations.</p>
+              <p data-i18n="visualNuance">Letters do not generally move or reverse for everyone with dyslexia. Some people do report visual discomfort or difficulty following lines, but that is not a universal feature or proof of dyslexia. The moving-letter effects on this site are an optional illustration, not a simulation.</p>
+            </div>
+          </details>
+
+          <details class="research-topic">
+            <summary data-i18n="evidenceTitle">What research says, with context</summary>
+            <div class="research-topic-content">
+              <p data-i18n="evidenceBody">Dyslexia mainly affects word reading and/or spelling, including accuracy and reading speed. It occurs across a range of abilities and is not a measure of intelligence. A research review estimated that about 7 in 100 primary-school-age children met the study criteria worldwide; estimates depend on language, methods, and definitions, so this is not an exact figure for the Netherlands or for diagnosed people.</p>
+              <p data-i18n="wellbeingBody">Reading difficulties can be associated with stress, reading fatigue, anxiety, or lower confidence for some people. An association does not mean dyslexia inevitably causes mental-health problems. Supportive teaching, understanding, and suitable tools can make a difference.</p>
+            </div>
+          </details>
+
+          <details class="research-topic">
+            <summary data-i18n="overlapTitle">Other needs and useful support</summary>
+            <div class="research-topic-content">
+              <p data-i18n="overlapBody">Dyslexia can occur alongside ADHD, developmental language disorder, or dyscalculia, but these are distinct conditions and not everyone has more than one. Difficulties with memory, organisation, or processing speed may also occur for some people; they are not requirements for dyslexia.</p>
+              <p data-i18n="supportBody">Helpful support depends on the person. It can include structured reading and spelling instruction, extra time, clear step-by-step directions, text-to-speech, audiobooks, or adjustments at school, college, or work. A qualified specialist can assess reading and spelling needs; an online demonstration cannot diagnose dyslexia.</p>
+            </div>
+          </details>
+
+          <div class="research-sources">
+            <h3 data-i18n="researchSourcesTitle">Research and guidance</h3>
+            <ul>
+              <li><a href="https://dyslexiaida.org/explanation-2025-dyslexia-definition-explanation/" target="_blank" rel="noopener noreferrer" data-i18n="researchSourceIda">International Dyslexia Association — 2025 definition and explanation</a></li>
+              <li><a href="https://pubmed.ncbi.nlm.nih.gov/35204003/" target="_blank" rel="noopener noreferrer" data-i18n="researchSourcePrevalence">Systematic review — estimated prevalence in primary-school-age children</a></li>
+              <li><a href="https://pubmed.ncbi.nlm.nih.gov/30528985/" target="_blank" rel="noopener noreferrer" data-i18n="researchSourceWellbeing">Systematic review and meta-analysis — reading difficulties and mental health</a></li>
+              <li><a href="https://www.nhs.uk/conditions/dyslexia-in-adults/" target="_blank" rel="noopener noreferrer" data-i18n="researchSourceNhsAdults">NHS — dyslexia in adults and support</a></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="info-section quiz-section" aria-labelledby="quiz-title">
+          <p class="card-label" data-i18n="quizLabel">QUICK QUIZ</p>
+          <h2 id="quiz-title" data-i18n="quizTitle">What do you know about dyslexia?</h2>
+          <p class="quiz-intro" data-i18n="quizIntro">Five questions with explanations. This is for learning, not a test or diagnosis.</p>
+          <div id="quiz-content" aria-live="polite">
+            <p id="quiz-progress" class="quiz-progress"></p>
+            <form id="quiz-form">
+              <fieldset class="quiz-fieldset">
+                <legend id="quiz-question" class="quiz-question" tabindex="-1"></legend>
+                <div id="quiz-options" class="quiz-options"></div>
+              </fieldset>
+              <button id="quiz-submit" class="action-button" type="submit" data-i18n="quizCheck">Check answer</button>
+            </form>
+            <div id="quiz-feedback" class="quiz-feedback" role="status" hidden></div>
+            <button id="quiz-next" class="action-button" type="button" hidden data-i18n="quizNext">Next question</button>
+          </div>
+          <div id="quiz-result" class="quiz-result" role="status" hidden></div>
+          <button id="quiz-restart" class="reset-button" type="button" hidden data-i18n="quizRestart">Try again</button>
         </section>
 
         <section class="info-section contact-section" aria-labelledby="contact-title">
