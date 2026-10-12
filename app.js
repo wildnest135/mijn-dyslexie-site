@@ -1,5 +1,5 @@
 const exampleText = [
-  "Mijn verhaal",
+  "Een Ander Perspectief",
   "Hoi, ik ben Dinand en ik wil mezelf graag even voorstellen!",
   "Ik heb dyslexie. Daardoor kan lezen en schrijven voor mij soms best lastig zijn. Sommige woorden herken ik niet meteen en soms moet ik een zin opnieuw lezen om goed te begrijpen wat er staat. Vooral lange woorden en grote stukken tekst kunnen extra moeite kosten. Dat betekent niet dat ik de informatie niet begrijp, maar soms heb ik gewoon wat meer tijd nodig om alles goed te verwerken.",
   "Daarom ben ik begonnen met dit project: Een Ander Perspectief. Met deze website wil ik laten zien hoe mensen met dyslexie de wereld lezen, zien en ervaren. Ik wil mensen niet alleen vertellen wat dyslexie is, maar ze ook zelf laten ontdekken hoe een leeservaring kan veranderen.",
@@ -17,7 +17,7 @@ const exampleText = [
 
 const storiesByLanguage = {
   en: [
-    "My story",
+    "A Different Perspective",
     "Hi, I'm Dinand, and I'd like to introduce myself!",
     "I have dyslexia. Because of that, reading and writing can sometimes be quite difficult for me. I do not always recognise some words straight away, and sometimes I have to read a sentence again to understand it properly. Long words and large blocks of text can take extra effort. That does not mean I cannot understand the information; sometimes I simply need more time to process it.",
     "That is why I started this project: Een Ander Perspectief. With this website, I want to show how people with dyslexia read, see, and experience the world. I do not just want to tell people what dyslexia is; I also want them to discover for themselves how a reading experience can change.",
@@ -33,7 +33,7 @@ const storiesByLanguage = {
     "A different way of seeing. A different way of reading. More understanding for one another."
   ].join("\n\n"),
   de: [
-    "Meine Geschichte",
+    "Eine andere Perspektive",
     "Hallo, ich bin Dinand und möchte mich gerne vorstellen!",
     "Ich habe Legasthenie. Deshalb können Lesen und Schreiben für mich manchmal ziemlich schwierig sein. Manche Wörter erkenne ich nicht sofort, und manchmal muss ich einen Satz noch einmal lesen, um richtig zu verstehen, was dort steht. Besonders lange Wörter und große Textabschnitte können zusätzliche Mühe kosten. Das bedeutet nicht, dass ich die Informationen nicht verstehe; manchmal brauche ich einfach mehr Zeit, um alles zu verarbeiten.",
     "Deshalb habe ich dieses Projekt begonnen: Een Ander Perspectief. Mit dieser Website möchte ich zeigen, wie Menschen mit Legasthenie die Welt lesen, sehen und erleben. Ich möchte nicht nur erklären, was Legasthenie ist, sondern anderen auch ermöglichen, selbst zu entdecken, wie sich ein Leseerlebnis verändern kann.",
