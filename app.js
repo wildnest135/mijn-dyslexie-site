@@ -633,7 +633,7 @@ function applySettings() {
   document.body.dataset.effectActive = settings.motionEnabled && settings.motion > 0;
   document.body.dataset.focusMode = settings.focusMode;
   document.body.dataset.rulerActive = settings.rulerEnabled;
-  output.hazeOverlay.style.setProperty("--haze-blur", `${settings.haze / 100 * 55}px`);
+  output.hazeOverlay.style.setProperty("--haze-blur", `${settings.haze / 100 * 18}px`);
   output.hazeOverlay.style.setProperty("--haze-tint", "0");
 
   output.fontSize.value = `${settings.fontSize} px`;
@@ -718,20 +718,31 @@ function scrambleWordPositions(word, currentPositions, intensity) {
   const positions = [...currentPositions];
   if (word.length < 4 || Math.random() * 100 >= intensity) return positions;
 
-  const isShuffled = positions.some((position, index) => position !== index);
-  const possibleSwaps = [];
-  for (let first = 1; first < positions.length - 1; first += 1) {
-    for (let second = first + 1; second < positions.length - 1; second += 1) {
-      const nextPositions = [...positions];
-      [nextPositions[first], nextPositions[second]] = [nextPositions[second], nextPositions[first]];
-      const returnsToOriginal = nextPositions.every((position, index) => position === index);
-      if (!isShuffled || !returnsToOriginal) possibleSwaps.push(nextPositions);
-    }
+  const internalLength = positions.length - 2;
+  const totalSwaps = internalLength * (internalLength - 1) / 2;
+  const changedPositions = [];
+  for (let index = 1; index < positions.length - 1; index += 1) {
+    if (positions[index] !== index) changedPositions.push(index);
   }
 
-  return possibleSwaps.length === 0
-    ? positions
-    : possibleSwaps[Math.floor(Math.random() * possibleSwaps.length)];
+  const [changedFirst, changedSecond] = changedPositions;
+  const returnsToOriginal = changedPositions.length === 2
+    && positions[changedFirst] === changedSecond
+    && positions[changedSecond] === changedFirst;
+  if (returnsToOriginal && totalSwaps === 1) return positions;
+
+  let selectedSwap = Math.floor(Math.random() * (totalSwaps - Number(returnsToOriginal)));
+  for (let first = 1; first < positions.length - 1; first += 1) {
+    for (let second = first + 1; second < positions.length - 1; second += 1) {
+      if (returnsToOriginal && first === changedFirst && second === changedSecond) continue;
+      if (selectedSwap === 0) {
+        [positions[first], positions[second]] = [positions[second], positions[first]];
+        return positions;
+      }
+      selectedSwap -= 1;
+    }
+  }
+  return positions;
 }
 
 function confuseLetters(text, intensity) {
@@ -752,6 +763,16 @@ function confuseLetters(text, intensity) {
 let renderedSourceParagraphs = [];
 let renderedWords = [];
 let renderedMotion = null;
+const readingVisibilityObserver = "IntersectionObserver" in window
+  ? new IntersectionObserver((entries) => {
+    let paragraphEnteredView = false;
+    entries.forEach((entry) => {
+      entry.target.dataset.inView = String(entry.isIntersecting);
+      paragraphEnteredView ||= entry.isIntersecting;
+    });
+    if (paragraphEnteredView) renderText();
+  }, { rootMargin: "200px 0px" })
+  : null;
 
 function renderText() {
   const source = settings.customText.trim() || storiesByLanguage[settings.language];
@@ -760,9 +781,12 @@ function renderText() {
     sourceParagraphs.some((paragraph, index) => paragraph !== renderedSourceParagraphs[index]);
 
   if (needsRebuild) {
+    readingVisibilityObserver?.disconnect();
     renderedSourceParagraphs = sourceParagraphs;
     renderedWords = [];
+    renderedMotion = null;
     output.readingText.replaceChildren();
+    const paragraphFragment = document.createDocumentFragment();
 
     for (const paragraph of sourceParagraphs) {
       const paragraphElement = document.createElement("p");
@@ -801,6 +825,7 @@ function renderText() {
         visualText.append(wordElement);
         paragraphWords.push({
           text: token,
+          characters: [...token],
           element: wordElement,
           letters,
           order: letters.map((_, index) => index)
@@ -808,14 +833,20 @@ function renderText() {
       }
 
       paragraphElement.append(readableText, visualText);
-      output.readingText.append(paragraphElement);
-      renderedWords.push(paragraphWords);
+      paragraphFragment.append(paragraphElement);
+      if (readingVisibilityObserver) {
+        readingVisibilityObserver.observe(paragraphElement);
+      } else {
+        paragraphElement.dataset.inView = "true";
+      }
+      renderedWords.push({ element: paragraphElement, words: paragraphWords });
     }
+    output.readingText.append(paragraphFragment);
   }
 
   if (renderedMotion !== settings.motion) {
     const distance = settings.motion / 100;
-    renderedWords.flat().forEach((word) => {
+    renderedWords.flatMap(({ words }) => words).forEach((word) => {
       word.letters.forEach((element) => {
         element.style.setProperty("--drift-x", `${Number(element.dataset.driftX) * 8 * distance}px`);
         element.style.setProperty("--drift-y", `${Number(element.dataset.driftY) * 8 * distance}px`);
@@ -829,8 +860,11 @@ function renderText() {
     renderedMotion = settings.motion;
   }
 
-  const updates = renderedWords.flat().map((word) => {
-    const sourceLetters = [...word.text];
+  const visibleWords = renderedWords
+    .filter(({ element }) => element.dataset.inView !== "false")
+    .flatMap(({ words }) => words);
+  const updates = visibleWords.map((word) => {
+    const sourceLetters = word.characters;
     const positions = scrambleWordPositions(word.text, word.order, settings.shuffleEnabled ? settings.scramble : 0);
     const shuffledText = positions.map((position) => sourceLetters[position]).join("");
     const displayedCharacters = [...(settings.confusion === 0

@@ -4,7 +4,6 @@
   background: #f5f6fa;
   color: #202537;
   font-synthesis: none;
-  text-rendering: optimizeLegibility;
   --accent: #6253d8;
   --muted: #72798d;
   --surface: #fff;
@@ -375,6 +374,8 @@ h1 {
 
 .reading-text p {
   margin-bottom: var(--paragraph-spacing, 1em);
+  content-visibility: auto;
+  contain-intrinsic-size: auto 8em;
 }
 
 .reading-text p:last-child {
@@ -693,12 +694,18 @@ h1 {
   white-space: nowrap;
 }
 
-body[data-effect-active="true"] .reading-text .moving-letter {
+body[data-effect-active="true"] .reading-text p[data-in-view="true"] .moving-letter {
   animation: letter-drift var(--drift-duration) ease-in-out var(--drift-delay) infinite alternate;
 }
 
 body[data-motion-paused="true"] .reading-text .moving-letter {
   animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reading-text .moving-letter {
+    animation: none !important;
+  }
 }
 
 @keyframes letter-drift {
