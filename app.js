@@ -54,7 +54,7 @@ const storiesByLanguage = {
 const translations = {
   en: {
     pageTitle: "a different perspective", brand: "a different perspective", brandAria: "a different perspective", headerNote: "A reading experience you can adjust", languageLabel: "Language", fontSerif: "Serif", fontMono: "Monospace", saveProfile: "Save profile",
-    eyebrow: "A place where reading feels different", storyLabel: "MY STORY", storyTitle: "I'm Dinand", readingTime: "15/30 minute read", pageHeading: "My story",
+    eyebrow: "A place where reading feels different", storyLabel: "MY STORY", storyTitle: "Hi i'm Dinand", readingTime: "15/30 minute read", pageHeading: "My story",
     intro: "I'm Dinand, and I'd like to introduce myself. I want to help people better understand what reading with dyslexia can feel like.",
     normalRead: "Read normally", enableEffects: "Turn effects back on", normalActive: "Normal reading mode is active.", focusMode: "Focus reading mode", exitFocus: "Exit reading mode",
     readingNote: "This is an educational reading experiment, not a true simulation of dyslexia. There is no single experience shared by everyone with dyslexia.",
@@ -132,7 +132,7 @@ const translations = {
   },
   nl: {
     pageTitle: "Een Ander Perspectief", brand: "Een Ander Perspectief", brandAria: "Een Ander Perspectief, startpagina", headerNote: "Een leeservaring die je zelf instelt", languageLabel: "Taal", fontSerif: "Serif", fontMono: "Monospace", saveProfile: "Profiel opslaan",
-    eyebrow: "Een plek waar lezen anders is", storyLabel: "MIJN VERHAAL", storyTitle: "Ik ben Dinand", readingTime: "15 tot 30 minuten lezen", pageHeading: "Mijn verhaal",
+    eyebrow: "Een plek waar lezen anders is", storyLabel: "MIJN VERHAAL", storyTitle: "Hoi ik ben Dinand", readingTime: "15 tot 30 minuten lezen", pageHeading: "Mijn verhaal",
     intro: "Ik ben Dinand en ik wil mezelf graag even voorstellen. Ik vind het belangrijk om mensen een beter beeld te geven van hoe lezen met dyslexie kan voelen.",
     normalRead: "Lees deze tekst normaal", enableEffects: "Effecten weer aanzetten", normalActive: "De normale leesstand is actief.", focusMode: "Rustige leesstand", exitFocus: "Leesstand afsluiten",
     readingNote: "Dit is een educatief leesexperiment, geen echte simulatie van dyslexie. Er is geen één ervaring die voor iedereen met dyslexie geldt.",
