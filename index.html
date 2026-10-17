@@ -60,6 +60,14 @@
           </p>
         </article>
 
+        <section class="info-section community-stories" aria-labelledby="community-stories-title">
+          <p class="card-label" data-i18n="communityStoriesLabel">COMMUNITY STORIES</p>
+          <h2 id="community-stories-title" data-i18n="communityStoriesTitle">Stories from others</h2>
+          <p class="community-stories-intro" data-i18n="communityStoriesIntro">Personal stories shared by other readers.</p>
+          <p id="community-stories-empty" class="community-stories-empty" data-i18n="communityStoriesEmpty">Stories shared by others will appear here.</p>
+          <div id="community-stories-list" class="community-stories-list"></div>
+        </section>
+
         <section class="info-section" aria-labelledby="info-title">
           <p class="card-label" data-i18n="backgroundLabel">BACKGROUND</p>
           <h2 id="info-title" data-i18n="infoTitle">About dyslexia and this experiment</h2>
@@ -371,9 +379,17 @@
               <label for="custom-story-title" data-i18n="customTitleLabel">Title</label>
               <input id="custom-story-title" type="text" maxlength="80" placeholder="Een Ander Perspectief" data-i18n-placeholder="customTitlePlaceholder">
             </div>
-            <div class="setting">
-              <label for="custom-story-text" data-i18n="customTextLabel">Reading text</label>
-              <textarea id="custom-story-text" rows="7" maxlength="12000" placeholder="Leave empty to use the default story." data-i18n-placeholder="customTextPlaceholder"></textarea>
+            <div class="setting" data-story-language="en">
+              <label for="custom-story-text-en">English (EN)</label>
+              <textarea id="custom-story-text-en" rows="7" maxlength="12000" placeholder="Leave empty to use the default story." data-i18n-placeholder="customTextPlaceholder"></textarea>
+            </div>
+            <div class="setting" data-story-language="nl" hidden>
+              <label for="custom-story-text-nl">Nederlands (NL)</label>
+              <textarea id="custom-story-text-nl" rows="7" maxlength="12000" placeholder="Leave empty to use the default story." data-i18n-placeholder="customTextPlaceholder"></textarea>
+            </div>
+            <div class="setting" data-story-language="de" hidden>
+              <label for="custom-story-text-de">Deutsch (DE)</label>
+              <textarea id="custom-story-text-de" rows="7" maxlength="12000" placeholder="Leave empty to use the default story." data-i18n-placeholder="customTextPlaceholder"></textarea>
             </div>
             <div class="custom-story-actions">
               <button id="apply-custom-story" class="action-button" type="button" data-i18n="applyText">Apply text</button>

@@ -395,6 +395,53 @@ h1 {
   box-shadow: 0 12px 36px rgb(33 38 61 / 4%);
 }
 
+.community-stories-intro,
+.community-stories-empty,
+.community-story {
+  color: #60677a;
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.community-stories-list:not(:empty) {
+  margin-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.community-story {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.community-story-language {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.community-story h3 {
+  margin: 0 0 5px;
+  color: #34394a;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.community-story p {
+  margin: 0 0 10px;
+}
+
+.community-story p:last-child {
+  margin-bottom: 0;
+}
+
+.community-story .community-story-name {
+  margin-bottom: 9px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 400;
+}
+
 .info-section > .card-label {
   margin-bottom: 7px;
 }

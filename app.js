@@ -15,6 +15,45 @@ const exampleText = [
   "Een andere manier van kijken. Een andere manier van lezen. Meer begrip voor elkaar."
 ].join("\n\n");
 
+// COMMUNITY STORIES: copy one whole object to add another story. Fill in name, title, and story under each language.
+const communityStories = [
+//   {
+//     en: {
+//       name: "Name",
+//       title: "Story title",
+//       story: `English story text.`
+//     },
+//     nl: {
+//       name: "Naam",
+//       title: "Titel van het verhaal",
+//       story: `Nederlandse verhaaltekst.`
+//     },
+//     de: {
+//       name: "Name",
+//       title: "Geschichtstitel",
+//       story: `Deutscher Geschichten-Text.`
+//     }
+//   }
+   {
+     en: {
+       name: "Name",
+       title: "Story title",
+       story: `English story text.`
+     },
+     nl: {
+       name: "test",
+       title: "verhaal van test",
+       story: `flip flap flop fliep flap fliep flip flap fliep flap fliep flip flap fliep flap fliep flip flap fliep flap fliep flip flap fliep flap fliep flip flap fliep flap fliep flip flap fliep flap fliep flip flap fliep flap fliep flip flap fliep flap fliep flip flap fliep flap fliep flip flap fliep flap fliep flip flap fliep flap fliep flip flap fliep flap fliep flip flap fliep flap fliep flip flap fliep`
+     },
+     de: {
+       name: "Name",
+       title: "Geschichtstitel",
+       story: `Deutscher Geschichten-Text.`
+     }
+   }
+
+];
+
 const storiesByLanguage = {
   en: [
     "A Different Perspective",
@@ -54,7 +93,7 @@ const storiesByLanguage = {
 const translations = {
   en: {
     pageTitle: "a different perspective", brand: "a different perspective", brandAria: "a different perspective", headerNote: "A reading experience you can adjust", languageLabel: "Language", fontSerif: "Serif", fontMono: "Monospace", saveProfile: "Save profile",
-    eyebrow: "A place where reading feels different", storyLabel: "MY STORY", storyTitle: "Hi i'm Dinand", readingTime: "15/30 minute read", pageHeading: "My story",
+    eyebrow: "A place where reading feels different", storyLabel: "MY STORY", storyTitle: "I'm Dinand", readingTime: "15/30 minute read", pageHeading: "My story",
     intro: "I'm Dinand, and I'd like to introduce myself. I want to help people better understand what reading with dyslexia can feel like.",
     normalRead: "Read normally", enableEffects: "Turn effects back on", normalActive: "Normal reading mode is active.", focusMode: "Focus reading mode", exitFocus: "Exit reading mode",
     readingNote: "This is an educational reading experiment, not a true simulation of dyslexia. There is no single experience shared by everyone with dyslexia.",
@@ -82,6 +121,7 @@ const translations = {
       { question: "Will everyone with dyslexia develop anxiety or low confidence?", options: ["Yes, it always happens", "No. Some people may experience this, but it is not inevitable", "Only people who read aloud"], answer: 1, explanation: "Some people experience stress or lower confidence, but this is not inevitable. Supportive environments can help." },
       { question: "Who can assess whether someone has dyslexia?", options: ["An online quiz", "A qualified specialist who assesses reading and spelling", "A single eyesight check"], answer: 1, explanation: "A proper assessment looks at reading and spelling skills and should be carried out by a qualified professional. This quiz cannot diagnose dyslexia." }
     ],
+    communityStoriesLabel: "COMMUNITY STORIES", communityStoriesTitle: "Stories from others", communityStoriesIntro: "Add stories here. They are stored only in this browser on this device.", communityStoriesEmpty: "Stories added here will appear in this list.", communityStoryFormTitle: "Add a community story", communityStoryTitleLabel: "Story title", communityStoryNameLabel: "Name (optional)", communityStoryEnglishLabel: "English (EN)", communityStoryDutchLabel: "Dutch (NL)", communityStoryGermanLabel: "German (DE)", communityStoryTextPlaceholder: "Write or paste this translation here.", communityStorySave: "Add story", communityStoryUpdate: "Save changes", communityStoryCancel: "Clear form", communityStoryEdit: "Edit", communityStoryDelete: "Delete", communityStoryTitleRequired: "Enter a title for the story.", communityStoryTextRequired: "Add text in at least one language.", communityStoryLimit: "You can save up to 30 stories on this device.", communityStorySaved: "Story saved on this device.", communityStoryUpdated: "Story updated.", communityStoryDeleted: "Story deleted.", communityStoryStorageError: "Could not save stories in this browser.", communityStoryLanguageFallback: "Showing {language} translation",
     experienceLabel: "YOUR EXPERIENCE", contactTitle: "Share what you need", contactIntro: "Many parts of this page are adjustable. Show it to your family and friends and tell them how you experience reading. Is a setting missing, or do you have an idea for an effect? Let me know. I'll see what I can add to help you share your experience with them.", feedbackPrompt: "Have a suggestion? Share it in", discordLink: "the Discord server", orPostIt: "or post it in", issuesLink: "the GitHub repository issues", contactNote: "This page cannot show exactly what dyslexia feels like for everyone. Your own story matters most.",
     settingsTitle: "Reading settings", settingsSubtitle: "Choose what feels comfortable for you.", presetLabel: "Start with a preset", presetMaker: "The creator's experience", presetCustom: "My settings", presetCalm: "Calm", presetEasy: "Easy reading", presetSpacious: "Extra spacing", presetContrast: "Higher contrast", presetHelp: "These are starting points, not fixed profiles or diagnoses.",
     saveOwnProfile: "Save a custom profile", savedProfiles: "Saved profiles", chooseProfile: "Choose a profile", save: "Save", load: "Load", delete: "Delete", profileNamePlaceholder: "Profile name", customTitlePlaceholder: "Een Ander Perspectief",
@@ -121,6 +161,7 @@ const translations = {
       { question: "Bekommen alle Menschen mit Legasthenie Angst oder wenig Selbstvertrauen?", options: ["Ja, das passiert immer", "Nein. Manche erleben das, aber es ist nicht unvermeidlich", "Nur Menschen, die laut lesen"], answer: 1, explanation: "Manche Menschen erleben Stress oder weniger Selbstvertrauen, aber das ist nicht unvermeidlich. Ein unterstützendes Umfeld kann helfen." },
       { question: "Wer kann feststellen, ob jemand Legasthenie hat?", options: ["Ein Online-Quiz", "Eine qualifizierte Fachperson, die Lesen und Schreiben beurteilt", "Ein einzelner Sehtest"], answer: 1, explanation: "Eine fachliche Beurteilung untersucht Lese- und Rechtschreibfähigkeiten und sollte von einer qualifizierten Fachperson durchgeführt werden. Dieses Quiz kann keine Legasthenie diagnostizieren." }
     ],
+    communityStoriesLabel: "GESCHICHTEN AUS DER COMMUNITY", communityStoriesTitle: "Geschichten anderer", communityStoriesIntro: "Füge hier Geschichten hinzu. Sie werden nur in diesem Browser auf diesem Gerät gespeichert.", communityStoriesEmpty: "Hier hinzugefügte Geschichten erscheinen in dieser Liste.", communityStoryFormTitle: "Community-Geschichte hinzufügen", communityStoryTitleLabel: "Titel der Geschichte", communityStoryNameLabel: "Name (optional)", communityStoryEnglishLabel: "Englisch (EN)", communityStoryDutchLabel: "Niederländisch (NL)", communityStoryGermanLabel: "Deutsch (DE)", communityStoryTextPlaceholder: "Schreibe oder füge die Übersetzung hier ein.", communityStorySave: "Geschichte hinzufügen", communityStoryUpdate: "Änderungen speichern", communityStoryCancel: "Formular leeren", communityStoryEdit: "Bearbeiten", communityStoryDelete: "Löschen", communityStoryTitleRequired: "Gib einen Titel für die Geschichte ein.", communityStoryTextRequired: "Füge Text in mindestens einer Sprache hinzu.", communityStoryLimit: "Du kannst bis zu 30 Geschichten auf diesem Gerät speichern.", communityStorySaved: "Geschichte auf diesem Gerät gespeichert.", communityStoryUpdated: "Geschichte aktualisiert.", communityStoryDeleted: "Geschichte gelöscht.", communityStoryStorageError: "Geschichten konnten nicht in diesem Browser gespeichert werden.", communityStoryLanguageFallback: "Übersetzung wird angezeigt: {language}",
     experienceLabel: "DEINE ERFAHRUNG", contactTitle: "Teile, was du brauchst", contactIntro: "Viele Bereiche dieser Seite lassen sich anpassen. Zeige sie deiner Familie und deinen Freunden und erzähle ihnen, wie du das Lesen erlebst. Fehlt eine Einstellung oder hast du eine Idee für einen Effekt? Sag mir Bescheid. Ich schaue, was ich ergänzen kann, damit du deine Erfahrung mit ihnen teilen kannst.", feedbackPrompt: "Hast du einen Vorschlag? Teile ihn auf", discordLink: "dem Discord-Server", orPostIt: "oder schreibe ihn in die", issuesLink: "GitHub-Repository-Issues", contactNote: "Diese Seite kann nicht genau zeigen, wie sich Legasthenie für alle anfühlt. Deine eigene Geschichte ist am wichtigsten.",
     settingsTitle: "Leseeinstellungen", settingsSubtitle: "Wähle, was sich für dich angenehm anfühlt.", presetLabel: "Mit einem Profil beginnen", presetMaker: "Die Erfahrung des Erstellers", presetCustom: "Meine Einstellungen", presetCalm: "Ruhig", presetEasy: "Leichter lesen", presetSpacious: "Mehr Abstand", presetContrast: "Hoher Kontrast", presetHelp: "Dies sind Ausgangspunkte, keine festen Profile oder Diagnosen.",
     saveOwnProfile: "Eigenes Profil speichern", savedProfiles: "Gespeicherte Profile", chooseProfile: "Profil auswählen", save: "Speichern", load: "Laden", delete: "Löschen", profileNamePlaceholder: "Profilname", customTitlePlaceholder: "Een Ander Perspectief",
@@ -132,7 +173,7 @@ const translations = {
   },
   nl: {
     pageTitle: "Een Ander Perspectief", brand: "Een Ander Perspectief", brandAria: "Een Ander Perspectief, startpagina", headerNote: "Een leeservaring die je zelf instelt", languageLabel: "Taal", fontSerif: "Serif", fontMono: "Monospace", saveProfile: "Profiel opslaan",
-    eyebrow: "Een plek waar lezen anders is", storyLabel: "MIJN VERHAAL", storyTitle: "Hoi ik ben Dinand", readingTime: "15 tot 30 minuten lezen", pageHeading: "Mijn verhaal",
+    eyebrow: "Een plek waar lezen anders is", storyLabel: "MIJN VERHAAL", storyTitle: "Ik ben Dinand", readingTime: "15 tot 30 minuten lezen", pageHeading: "Mijn verhaal",
     intro: "Ik ben Dinand en ik wil mezelf graag even voorstellen. Ik vind het belangrijk om mensen een beter beeld te geven van hoe lezen met dyslexie kan voelen.",
     normalRead: "Lees deze tekst normaal", enableEffects: "Effecten weer aanzetten", normalActive: "De normale leesstand is actief.", focusMode: "Rustige leesstand", exitFocus: "Leesstand afsluiten",
     readingNote: "Dit is een educatief leesexperiment, geen echte simulatie van dyslexie. Er is geen één ervaring die voor iedereen met dyslexie geldt.",
@@ -160,6 +201,7 @@ const translations = {
       { question: "Krijgt iedereen met dyslexie angst of weinig zelfvertrouwen?", options: ["Ja, dat gebeurt altijd", "Nee. Sommige mensen ervaren dit, maar het is niet onvermijdelijk", "Alleen mensen die hardop lezen"], answer: 1, explanation: "Sommige mensen ervaren stress of minder zelfvertrouwen, maar dit hoeft niet. Een begripvolle omgeving kan helpen." },
       { question: "Wie kan beoordelen of iemand dyslexie heeft?", options: ["Een online quiz", "Een deskundige die lezen en spellen onderzoekt", "Een enkele oogmeting"], answer: 1, explanation: "Een goede beoordeling kijkt naar lees- en spellingvaardigheden en wordt uitgevoerd door een gekwalificeerde deskundige. Deze quiz kan geen dyslexie vaststellen." }
     ],
+    communityStoriesLabel: "VERHALEN UIT DE COMMUNITY", communityStoriesTitle: "Verhalen van anderen", communityStoriesIntro: "Voeg hier verhalen toe. Ze worden alleen in deze browser op dit apparaat bewaard.", communityStoriesEmpty: "Verhalen die je hier toevoegt, verschijnen in deze lijst.", communityStoryFormTitle: "Communityverhaal toevoegen", communityStoryTitleLabel: "Titel van het verhaal", communityStoryNameLabel: "Naam (optioneel)", communityStoryEnglishLabel: "Engels (EN)", communityStoryDutchLabel: "Nederlands (NL)", communityStoryGermanLabel: "Duits (DE)", communityStoryTextPlaceholder: "Schrijf of plak hier deze vertaling.", communityStorySave: "Verhaal toevoegen", communityStoryUpdate: "Wijzigingen opslaan", communityStoryCancel: "Formulier leegmaken", communityStoryEdit: "Bewerken", communityStoryDelete: "Verwijderen", communityStoryTitleRequired: "Vul een titel voor het verhaal in.", communityStoryTextRequired: "Voeg tekst toe in ten minste één taal.", communityStoryLimit: "Je kunt maximaal 30 verhalen op dit apparaat bewaren.", communityStorySaved: "Verhaal bewaard op dit apparaat.", communityStoryUpdated: "Verhaal bijgewerkt.", communityStoryDeleted: "Verhaal verwijderd.", communityStoryStorageError: "Verhalen opslaan in deze browser is niet gelukt.", communityStoryLanguageFallback: "Vertaling in {language} wordt getoond",
     experienceLabel: "JOUW ERVARING", contactTitle: "Deel wat jij nodig hebt", contactIntro: "Veel onderdelen van deze pagina zijn aanpasbaar. Laat je familie en vrienden de pagina zien en vertel hoe jij lezen ervaart. Mist er iets in de instellingen of heb je een idee voor een effect? Laat het me weten; ik kijk wat ik kan toevoegen zodat je jouw ervaring met hen kunt delen.", feedbackPrompt: "Heb je een suggestie? Deel die in", discordLink: "de Discord-server", orPostIt: "of plaats die bij", issuesLink: "de GitHub-repo-issues", contactNote: "Deze pagina kan niet precies laten zien hoe dyslexie voor iedereen voelt. Jouw eigen verhaal blijft het belangrijkst.",
     settingsTitle: "Leesinstellingen", settingsSubtitle: "Kies wat voor jou prettig voelt.", presetLabel: "Begin met een startpunt", presetMaker: "Hoe de maker het ervaart", presetCustom: "Mijn instellingen", presetCalm: "Rustig", presetEasy: "Makkelijk lezen", presetSpacious: "Extra ruimte", presetContrast: "Meer contrast", presetHelp: "Dit zijn startpunten, geen vaste profielen of diagnoses.",
     saveOwnProfile: "Eigen profiel bewaren", savedProfiles: "Bewaarde profielen", chooseProfile: "Kies een profiel", save: "Opslaan", load: "Laden", delete: "Verwijderen", profileNamePlaceholder: "Naam van profiel", customTitlePlaceholder: "Een Ander Perspectief",
@@ -170,6 +212,13 @@ const translations = {
     savedLocally: "Instellingen bewaard op dit apparaat.", saveFailed: "Opslaan is niet gelukt; je instellingen gelden alleen zolang deze pagina open is.", storageUnavailable: "Opslag is niet beschikbaar; instellingen gelden alleen zolang deze pagina open is.", readSettingsFailed: "Bewaarde instellingen konden niet worden gelezen; de standaardinstellingen worden gebruikt.", profilesSaved: "Profielen bewaard op dit apparaat.", profileSaveFailed: "Profielen opslaan is niet gelukt; controleer de beschikbare browseropslag.", enterProfileName: "Vul eerst een naam in voor dit profiel.", maxProfiles: "Je kunt maximaal 30 profielen bewaren.", profileApplied: "Profiel ‘{name}’ toegepast.", normalStatus: "De tekst staat weer normaal. Je kunt bovenaan opnieuw beginnen.", hazeIntervalRandomValue: "7–10 sec (willekeurig)", off: "Uit", seconds: "sec", resumeEffects: "Effecten hervatten"
   }
 };
+
+translations.en.communityStoriesIntro = "Community stories are listed in app.js and published with the website.";
+translations.en.communityStoriesEmpty = "No community stories have been added yet.";
+translations.de.communityStoriesIntro = "Geschichten stehen in app.js und werden mit der Website veröffentlicht.";
+translations.de.communityStoriesEmpty = "Es wurden noch keine Community-Geschichten hinzugefügt.";
+translations.nl.communityStoriesIntro = "Verhalen staan in app.js en worden samen met de website gepubliceerd.";
+translations.nl.communityStoriesEmpty = "Er zijn nog geen communityverhalen toegevoegd.";
 
 let currentLanguage = "en";
 
@@ -190,7 +239,7 @@ const defaultSettings = {
   textWidth: 100,
   theme: "light",
   customTitle: "",
-  customText: "",
+  customStories: { en: "", nl: "", de: "" },
   scramble: 64,
   shuffleEnabled: true,
   confusion: 66,
@@ -259,7 +308,11 @@ const controls = {
   textWidth: document.querySelector("#text-width"),
   theme: document.querySelector("#color-theme"),
   customStoryTitle: document.querySelector("#custom-story-title"),
-  customStoryText: document.querySelector("#custom-story-text"),
+  customStoryTexts: {
+    en: document.querySelector("#custom-story-text-en"),
+    nl: document.querySelector("#custom-story-text-nl"),
+    de: document.querySelector("#custom-story-text-de")
+  },
   scramble: document.querySelector("#word-shuffle"),
   confusion: document.querySelector("#letter-confusion"),
   motion: document.querySelector("#letter-motion"),
@@ -277,7 +330,7 @@ const controls = {
   hazeEnabled: document.querySelector("#haze-enabled"),
   rulerEnabled: document.querySelector("#ruler-enabled"),
   savedProfileName: document.querySelector("#saved-profile-name"),
-  savedProfiles: document.querySelector("#saved-profiles-list")
+  savedProfiles: document.querySelector("#saved-profiles-list"),
 };
 
 const output = {
@@ -341,6 +394,8 @@ function readSettings() {
     }
     const legacyCustomTitleValues = new Set(["Hi, I'm Dinand", "Hoi, ik ben Dinand"]);
     const customTitleValue = typeof parsed.customTitle === "string" ? parsed.customTitle.slice(0, 80) : defaultSettings.customTitle;
+    const legacyLanguage = ["en", "de", "nl"].includes(parsed.language) ? parsed.language : defaultSettings.language;
+    const legacyCustomText = typeof parsed.customText === "string" ? parsed.customText.slice(0, 12000) : "";
     return {
       ...defaultSettings,
       ...parsed,
@@ -352,7 +407,12 @@ function readSettings() {
       font: ["system", "serif", "mono"].includes(parsed.font) ? parsed.font : defaultSettings.font,
       theme: ["light", "cream", "dark", "high-contrast"].includes(parsed.theme) ? parsed.theme : defaultSettings.theme,
       customTitle: legacyCustomTitleValues.has(customTitleValue) ? "" : customTitleValue,
-      customText: typeof parsed.customText === "string" ? parsed.customText.slice(0, 12000) : defaultSettings.customText,
+      customText: "",
+      customStories: {
+        en: typeof parsed.customStories?.en === "string" ? parsed.customStories.en.slice(0, 12000) : legacyLanguage === "en" ? legacyCustomText : "",
+        nl: typeof parsed.customStories?.nl === "string" ? parsed.customStories.nl.slice(0, 12000) : legacyLanguage === "nl" ? legacyCustomText : "",
+        de: typeof parsed.customStories?.de === "string" ? parsed.customStories.de.slice(0, 12000) : legacyLanguage === "de" ? legacyCustomText : ""
+      },
       fontSize: clamp(parsed.fontSize, 16, 30, defaultSettings.fontSize),
       lineHeight: clamp(parsed.lineHeight, 13, 24, defaultSettings.lineHeight),
       letterSpacing: clamp(parsed.letterSpacing, 0, 3, defaultSettings.letterSpacing),
@@ -424,7 +484,13 @@ function normalizeProfileSettings(profileSettings) {
     : defaultSettings.theme;
   const customTitleValue = typeof normalized.customTitle === "string" ? normalized.customTitle.slice(0, 80) : "";
   normalized.customTitle = legacyCustomTitleValues.has(customTitleValue) ? "" : customTitleValue;
-  normalized.customText = typeof normalized.customText === "string" ? normalized.customText.slice(0, 12000) : "";
+  const legacyCustomText = typeof normalized.customText === "string" ? normalized.customText.slice(0, 12000) : "";
+  normalized.customStories = {
+    en: typeof normalized.customStories?.en === "string" ? normalized.customStories.en.slice(0, 12000) : normalized.language === "en" ? legacyCustomText : "",
+    nl: typeof normalized.customStories?.nl === "string" ? normalized.customStories.nl.slice(0, 12000) : normalized.language === "nl" ? legacyCustomText : "",
+    de: typeof normalized.customStories?.de === "string" ? normalized.customStories.de.slice(0, 12000) : normalized.language === "de" ? legacyCustomText : ""
+  };
+  normalized.customText = "";
   normalized.fontSize = clamp(normalized.fontSize, 16, 30, defaultSettings.fontSize);
   normalized.lineHeight = clamp(normalized.lineHeight, 13, 24, defaultSettings.lineHeight);
   normalized.letterSpacing = clamp(normalized.letterSpacing, 0, 3, defaultSettings.letterSpacing);
@@ -484,6 +550,45 @@ function renderSavedProfiles() {
   const hasSelection = controls.savedProfiles.value !== "";
   output.loadProfile.disabled = !hasSelection;
   output.deleteProfile.disabled = !hasSelection;
+}
+
+function renderCommunityStories() {
+  const list = document.querySelector("#community-stories-list");
+  const emptyState = document.querySelector("#community-stories-empty");
+  const stories = communityStories.filter((story) =>
+    story && ["en", "nl", "de"].some((language) => story[language]?.story?.trim())
+  );
+  const fragment = document.createDocumentFragment();
+
+  stories.forEach((story) => {
+    const article = document.createElement("article");
+    article.className = "community-story";
+    const language = settings.language;
+    const availableLanguage = story[language]?.story?.trim()
+      ? language
+      : ["en", "nl", "de"].find((candidate) => story[candidate]?.story?.trim());
+    if (!availableLanguage) return;
+    const title = document.createElement("h3");
+    title.textContent = story[availableLanguage].title || "";
+    article.append(title);
+    const storyName = story[availableLanguage].name || "";
+    if (storyName.trim()) {
+      const name = document.createElement("p");
+      name.className = "community-story-name";
+      name.textContent = storyName;
+      article.append(name);
+    }
+
+    story[availableLanguage].story.split(/\n+/u).filter(Boolean).forEach((paragraphText) => {
+      const paragraph = document.createElement("p");
+      paragraph.textContent = paragraphText;
+      article.append(paragraph);
+    });
+    fragment.append(article);
+  });
+
+  list.replaceChildren(fragment);
+  emptyState.hidden = stories.length > 0;
 }
 
 function persistSavedProfiles() {
@@ -581,6 +686,9 @@ function applySettings() {
   document.querySelectorAll("[data-i18n-title]").forEach((element) => {
     element.title = translate(element.dataset.i18nTitle);
   });
+  document.querySelectorAll("[data-story-language]").forEach((element) => {
+    element.hidden = element.dataset.storyLanguage !== settings.language;
+  });
   controls.font.value = settings.font;
   controls.fontSize.value = settings.fontSize;
   controls.lineHeight.value = settings.lineHeight;
@@ -590,7 +698,9 @@ function applySettings() {
   controls.textWidth.value = settings.textWidth;
   controls.theme.value = settings.theme;
   controls.customStoryTitle.value = settings.customTitle;
-  controls.customStoryText.value = settings.customText;
+  Object.entries(controls.customStoryTexts).forEach(([language, field]) => {
+    field.value = settings.customStories[language];
+  });
   controls.scramble.value = settings.scramble;
   controls.confusion.value = settings.confusion;
   controls.motion.value = settings.motion;
@@ -660,6 +770,7 @@ function applySettings() {
   output.saveStatus.textContent = translate("savedLocally");
   output.focusModeToggle.setAttribute("aria-pressed", String(settings.focusMode));
   output.focusModeToggle.textContent = translate(settings.focusMode ? "exitFocus" : "focusMode");
+  renderCommunityStories();
   renderText();
   syncEffectTimer();
   syncHaze();
@@ -775,7 +886,7 @@ const readingVisibilityObserver = "IntersectionObserver" in window
   : null;
 
 function renderText() {
-  const source = settings.customText.trim() || storiesByLanguage[settings.language];
+  const source = settings.customStories[settings.language].trim() || storiesByLanguage[settings.language];
   const sourceParagraphs = source.split(/\n+/u).filter(Boolean);
   const needsRebuild = sourceParagraphs.length !== renderedSourceParagraphs.length ||
     sourceParagraphs.some((paragraph, index) => paragraph !== renderedSourceParagraphs[index]);
@@ -940,6 +1051,12 @@ function updateSetting(key, value) {
 
 controls.font.addEventListener("change", () => updateSetting("font", controls.font.value));
 controls.theme.addEventListener("change", () => updateSetting("theme", controls.theme.value));
+Object.entries(controls.customStoryTexts).forEach(([language, field]) => {
+  field.addEventListener("input", () => {
+    settings.customStories[language] = field.value;
+    saveSettings();
+  });
+});
 controls.fontSize.addEventListener("input", () => updateSetting("fontSize", Number(controls.fontSize.value)));
 controls.lineHeight.addEventListener("input", () => updateSetting("lineHeight", Number(controls.lineHeight.value)));
 controls.letterSpacing.addEventListener("input", () => updateSetting("letterSpacing", Number(controls.letterSpacing.value)));
@@ -1118,14 +1235,16 @@ output.normalReading.addEventListener("click", () => {
 });
 output.applyCustomStory.addEventListener("click", () => {
   settings.customTitle = controls.customStoryTitle.value.trim();
-  settings.customText = controls.customStoryText.value.trim();
+  settings.customStories = Object.fromEntries(
+    Object.entries(controls.customStoryTexts).map(([language, field]) => [language, field.value.trim()])
+  );
   settings.preset = "custom";
   applySettings();
   saveSettings();
 });
 output.resetCustomStory.addEventListener("click", () => {
   settings.customTitle = "";
-  settings.customText = "";
+  settings.customStories = { en: "", nl: "", de: "" };
   settings.preset = "custom";
   applySettings();
   saveSettings();
@@ -1216,5 +1335,6 @@ output.quizRestart.addEventListener("click", () => {
 });
 
 renderSavedProfiles();
+renderCommunityStories();
 applySettings();
 renderQuizQuestion();
