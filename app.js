@@ -945,14 +945,16 @@ function renderText() {
 
       paragraphElement.append(readableText, visualText);
       paragraphFragment.append(paragraphElement);
-      if (readingVisibilityObserver) {
-        readingVisibilityObserver.observe(paragraphElement);
-      } else {
+      paragraphElement.dataset.inView = "false";
+      if (!readingVisibilityObserver) {
         paragraphElement.dataset.inView = "true";
       }
       renderedWords.push({ element: paragraphElement, words: paragraphWords });
     }
     output.readingText.append(paragraphFragment);
+    if (readingVisibilityObserver) {
+      renderedWords.forEach(({ element }) => readingVisibilityObserver.observe(element));
+    }
   }
 
   if (renderedMotion !== settings.motion) {
@@ -990,9 +992,17 @@ function renderText() {
       : null;
   }).filter(Boolean);
 
-  updates.forEach(({ word, orderChanged }) => {
+  updates.forEach(({ word, positions, orderChanged }) => {
     if (orderChanged) {
-      word.oldPositions = new Map(word.letters.map((element) => [element, element.getBoundingClientRect()]));
+      const newIndexes = new Map();
+      positions.forEach((characterIndex, index) => newIndexes.set(characterIndex, index));
+      word.oldPositions = new Map();
+      word.order.forEach((characterIndex, index) => {
+        if (newIndexes.get(characterIndex) !== index) {
+          const element = word.letters[characterIndex];
+          word.oldPositions.set(element, element.getBoundingClientRect());
+        }
+      });
     }
   });
 
@@ -1009,10 +1019,8 @@ function renderText() {
     }
   });
 
-  updates.filter(({ orderChanged }) => orderChanged).forEach(({ word, positions }) => {
-    positions.forEach((position) => {
-      const element = word.letters[position];
-      const oldPosition = word.oldPositions.get(element);
+  updates.filter(({ orderChanged }) => orderChanged).forEach(({ word }) => {
+    word.oldPositions.forEach((oldPosition, element) => {
       const newPosition = element.getBoundingClientRect();
       const offsetX = oldPosition.left - newPosition.left;
       const offsetY = oldPosition.top - newPosition.top;
